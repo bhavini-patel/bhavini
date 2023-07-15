@@ -21,7 +21,7 @@ body {
   color: #5b5b5b;
   font-size: 14px;
   font-weight: bold;
-  padding: 8px 16px;
+  padding: 8px 3px;
   border-radius: 50px;
   letter-spacing: 0.2px;
 }
@@ -111,7 +111,7 @@ b, strong {
   display: inline-block;
   vertical-align: top;
   margin-top: 5px;
-  min-width: 260px;
+  min-width: 330px;
   position: relative;
 }
 
@@ -175,7 +175,7 @@ b, strong {
   transition: transform 200ms linear;
 }
 .navbar[class*="-unpinned"] {
-  transform: translate(0, -150%);
+  /* transform: translate(0, -150%); */
 }
 .navbar[class*="-pinned"] {
   transform: translate(0, 0);
@@ -464,7 +464,15 @@ b, strong {
 .social-links .uil:hover {
   color: #ffc200;
 }
+.project-info img {
+  border: 11px solid #ddd;
+  border-radius: 15px;
+  margin-bottom: 25px;
+}
 
+.project-info {
+  padding: 0 50px;
+}
 @media (min-width: 1270px) {
   .owl-theme .owl-dots {
     position: relative;
