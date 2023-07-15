@@ -473,6 +473,39 @@ b, strong {
 .project-info {
   padding: 0 50px;
 }
+ul.social-links {
+  display: inline-grid;
+  gap: 10px;
+  grid-auto-flow: column;
+}
+
+[class^="typewrite"] {
+	min-height: 200px;
+}
+[class^="wrap"]:after {
+	content: '';
+	display: inline-block;
+	position: relative;
+	width: 2px;
+	height: 40px;
+	background: #fff;
+	top: 8px;
+	left: 3px;
+}
+em.typewrite {
+  font-style: normal;
+  font-weight: 700;
+  color: #ffc200 !important;
+}
+.navbar-brand{
+  font-size: 2em;
+}
+@media (max-width: 512px) {
+  .typing-demo {
+    font-size: 4vw;
+  }
+}
+
 @media (min-width: 1270px) {
   .owl-theme .owl-dots {
     position: relative;
@@ -505,7 +538,9 @@ b, strong {
   h1 {
     font-size: 2.4em;
   }
-
+  .h1 {
+    font-size: 2rem;
+  } 
   h2 {
     font-size: 2em;
   }
@@ -522,6 +557,12 @@ b, strong {
 
   .navbar-expand-sm .navbar-nav .nav-link {
     padding: 3px 20px;
+  }
+  .animated-info {
+      display: block;
+  }
+  .project-info {
+      padding: 0;
   }
 }
 @media (max-width: 580px) {
