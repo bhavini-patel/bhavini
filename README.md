@@ -17,9 +17,10 @@ A Liquid + metaobject-powered system to dynamically manage product FAQs inside S
 [🔗 Live Demo](https://test2k25pdp.myshopify.com/products/hoodie-with-slogan) 
 
 ### 🧾 Shopify-Product-Upsell-with-Metafields
-**Repo:**  [Shopify-Product-Upsell-with-Metafields](https://github.com/bhavini-patel/Shopify-Product-Upsell-with-Metafields)
+**Repo:** [Shopify-Product-Upsell-with-Metafields](https://github.com/bhavini-patel/Shopify-Product-Upsell-with-Metafields)
 Product upselling functionality for Shopify stores using Metafields.
 [🔗 Live Demo](https://d2cbox-store.myshopify.com/products/the-complete-snowboard) 
+
 ---
 
 ### 🛍️ Custom Shopify Apps
