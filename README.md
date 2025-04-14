@@ -23,8 +23,7 @@ Product upselling functionality for Shopify stores using Metafields.
 ---
 
 ### 🛍️ Custom Shopify Apps
-From private admin tools to public apps that scale, I’ve built apps that solve real merchant needs.  
-
+I’ve built apps that solve real merchant needs, from private admin tools to public apps that scale.  
 
 ---
 
