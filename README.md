@@ -40,7 +40,7 @@ I’ve built apps that solve real merchant needs, from private admin tools to pu
 
 ## 📬 Let's Connect
 
-- 📧 Email: bhavini@example.com  
+- 📧 Email: patel23bhavini@gmail.com  
 - 💼 [LinkedIn](https://www.linkedin.com/in/bhavini-patel-5935b9101/)  
 - 🌐 [Portfolio Website](https://bhavini-patel.netlify.app/)  
 - 🛠️ [GitHub](https://github.com/bhavini-patel/)
