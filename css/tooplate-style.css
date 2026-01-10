@@ -469,10 +469,6 @@ b, strong {
   border-radius: 15px;
   margin-bottom: 25px;
 }
-
-.project-info {
-  padding: 0 50px;
-}
 ul.social-links {
   display: inline-grid;
   gap: 10px;
