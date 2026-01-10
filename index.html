@@ -10,13 +10,40 @@
     <link rel="icon" type="image/x-icon" href="images/undraw/favicon.ico">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/unicons.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/unicons.css">  
 
     <!-- MAIN STYLE -->
     <link rel="stylesheet" href="css/tooplate-style.css">
-    
+    <style>
+	/* PROJECT GRID */
+	.project-grid {
+	  display: grid;
+	  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	  gap: 24px;
+	  margin-top: 30px;
+	}
+
+	.project-info {
+	  background: #fff;
+	  border-radius: 12px;
+	  overflow: hidden;
+	  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+	  transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.project-info img {
+	  width: 100%;
+	  height: 100%;
+	  object-fit: cover;
+	  display: block;
+	}
+
+	.project-info:hover {
+	  transform: translateY(-6px);
+	  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+	}
+
+	</style>
   </head>
   <body>
 
@@ -110,71 +137,53 @@
                         <h2>Things I developed for an e-commerce website</h2>
                       </div>
 
-                      <div class="owl-carousel owl-theme">
-						<div class="item">
+                      <div class="project-grid">
+
                           <div class="project-info">
                             <a href="https://sto.co.il/" target="_blank">
                               <img src="images/project/sto.png" class="img-fluid" alt="project image"></a>
                           </div>
-                        </div>
-                        <div class="item">
+                        
                           <div class="project-info">
                             <a href="https://www.znaturalfoods.com/" target="_blank">
                               <img src="images/project/znatural.png" class="img-fluid" alt="project image"></a>
                           </div>
-                        </div>
 
-                        <div class="item">
                           <div class="project-info">
                             <a href="https://jackmurphyjewellers.com/" target="_blank">
                             <img src="images/project/project-3.jpg" class="img-fluid" alt="project image"></a>
                           </div>
-                        </div>
-						
-						<div class="item">
+                        
                           <div class="project-info">
                             <a href="https://korvibe.com/" target="_blank">
                             <img src="images/project/korvibe.png" class="img-fluid" alt="project image"></a>
                           </div>
-                        </div>
-						
-                        <div class="item">
+                        
                           <div class="project-info">
                             <a href="https://ourcoordinates.com/" target="_blank">
                             <img src="images/project/project-4.png" class="img-fluid" alt="project image"></a>
                           </div>
-                        </div>
-
-                        <div class="item">
+                        
                           <div class="project-info">
                             <a href="https://wearplakkies.com/" target="_blank">
                             <img src="images/project/project-5.png" class="img-fluid" alt="project image"></a>
                           </div>
-                        </div>
-
-                        <div class="item">
+                        
                           <div class="project-info">
                             <a href="https://vortexvirtualreality.dk/" target="_blank">
                             <img src="images/project/project-6.png" class="img-fluid" alt="project image"></a>
                           </div>
-                        </div>
 
-                        <div class="item">
                           <div class="project-info">
                             <a href="https://krissorbienyc.com/" target="_blank">
                             <img src="images/project/project-7.png" class="img-fluid" alt="project image"></a>
                           </div>
-                        </div>
-						
-						<div class="item">
+
                           <div class="project-info">
                             <a href="https://vortexvr.pl/" target="_blank">
                               <img src="images/project/project-8.png" class="img-fluid" alt="project image"></a>
                           </div>
-                        </div>
-						
-						
-						
+                       
                       </div>
 
                   </div>
@@ -440,8 +449,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/Headroom.js"></script>
-    <script src="js/jQuery.headroom.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jQuery.headroom.js"></script> 
     <script src="js/smoothscroll.js"></script>
     <script src="js/custom.js"></script>
 
