@@ -368,9 +368,6 @@ b, strong {
   margin-left: 15px;
 }
 
-.owl-carousel .owl-nav span {
-  display: none;
-}
 .owl-carousel .owl-nav .owl-prev:before,
 .owl-carousel .owl-nav .owl-next:before {
   background: none;
