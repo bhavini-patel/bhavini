@@ -319,7 +319,9 @@ b, strong {
 .dark-mode .owl-carousel button.owl-dot {
   color: #ffffff;
 }
-
+.owl-nav button span {
+    font-size: 30px;
+}
 .timeline-wrapper {
   position: relative;
   padding: 22px 0;
