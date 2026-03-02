@@ -17,41 +17,89 @@
     <!-- MAIN STYLE -->
     <link rel="stylesheet" href="css/tooplate-style.css">
     <style>
-	.project-card p {
-		font-size: 14px;
-		color: #fff;
-		margin-bottom: 2px;
-	}
-	.project-grid {
-	  display: grid;
-	  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-	  gap: 24px;
-	  margin-top: 30px;
-	}
-	.project-card {
-	  position: relative;
-	  height: 200px;
-	  overflow: hidden;
-	  border-radius: 16px;
-	  transition: all 0.4s ease;
-	  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-	}
-	.project-card:hover {
-	  transform: translateY(-6px);
-	  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-	}
-	.project-card img {
-	  width: 100%;
-	  height: 100%;
-	  object-fit: cover;
-	}
-
-	.project-overlay {
-	  position: absolute;
-	  inset: 0;   /* top:0; right:0; bottom:0; left:0 */
-	  height: 100%;
-	  width: 100%;
-	}
+		.owl-nav {
+		    display: none;
+		  }
+		.container {
+		  max-width: 1200px;
+		}
+		section#contact h2, section#contact p {
+			color: #fff;
+		}
+		.project-card p {
+			font-size: 14px;
+			color: #fff;
+			margin-bottom: 2px;
+		}
+		.project-grid {
+		  display: grid;
+		  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		  gap: 24px;
+		  margin-top: 30px;
+		}
+		.project-card {
+		  position: relative;
+		  height: 200px;
+		  overflow: hidden;
+		  border-radius: 16px;
+		  transition: all 0.4s ease;
+		  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+		}
+		.project-card:hover {
+		  transform: translateY(-6px);
+		  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+		}
+		.project-card img {
+		  width: 100%;
+		  height: 100%;
+		  object-fit: cover;
+		}
+		.project-overlay {
+		  position: absolute;
+		  bottom: 0;
+		  background: rgba(0,0,0,0.8);
+		  color: white; 
+		  padding: 20px;
+		  opacity: 0;
+		  transform: translateY(20px);
+		  transition: all 0.4s ease;
+		  inset: 0;   /* top:0; right:0; bottom:0; left:0 */
+		  height: 100%;
+		  width: 100%;
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: center;
+		}
+		.project-card:hover .project-overlay {
+		  opacity: 1;
+		  transform: translateY(0);
+		}
+		.nav-cta {
+		  padding: 8px 20px;
+		  border-radius: 30px;
+		  font-weight: 600;
+		  transition: all 0.3s ease;
+		}
+		.nav-cta:hover {
+		  transform: translateY(-2px);
+		  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+		}
+		.project-overlay a {
+		  display: inline-block;
+		  margin-top: 10px;
+		  padding: 6px 16px;
+		  background: #fff;
+		  color: #000;
+		  border-radius: 20px;
+		  font-size: 14px;
+		  font-weight: 600;
+		  text-decoration: none;
+		  transition: all 0.3s ease;
+		}
+		.project-overlay a:hover {
+		  background: #000;
+		  color: #fff;
+		}
 	</style>
   </head>
   <body>
@@ -79,7 +127,7 @@
                         <a href="#project" class="nav-link"><span data-hover="Projects">Projects</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="#resume" class="nav-link"><span data-hover="Resume">Resume</span></a>
+                        <a href="#reviews" class="nav-link"><span data-hover="Reviews">Reviews</span></a>
                     </li>
                     <li class="nav-item">
                         <a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a>
@@ -87,13 +135,12 @@
                 </ul>
 
                 <ul class="navbar-nav ml-lg-auto">
-                    <div class="ml-lg-4">
-                      <div class="color-mode d-lg-flex justify-content-center align-items-center">
-                        <i class="color-mode-icon"></i>
-                        Color mode
-                      </div>
-                    </div>
-                </ul>
+				  <li class="nav-item ml-lg-3">
+					<a href="#contact" class="btn btn-primary nav-cta">
+					  Book a Call
+					</a>
+				  </li>
+				</ul>
             </div>
         </div>
     </nav>
@@ -107,11 +154,10 @@
                     <div class="about-text">
                          
                         <h1>
-						  Senior Shopify & Shopify Plus Developer for High-Growth eCommerce Brands
+						  Senior Shopify & Shopify Plus Developer
 						</h1>
-
 						<p class="lead">
-						  I build high-converting, performance-optimized Shopify stores using clean Liquid architecture — no page builders, no shortcuts.
+						  Helping high-growth eCommerce brands scale with clean Liquid architecture and performance-driven development.
 						</p>
 
                         <p><strong>Core Skills:</strong></p>
@@ -547,10 +593,6 @@
 	<script>
 	  document.getElementById("year").textContent = new Date().getFullYear();
 	</script>
-	<style>
-		.owl-nav {
-		    display: none;
-		  }
-	</style>
+ 
   </body>
 </html>
