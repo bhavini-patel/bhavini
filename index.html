@@ -22,42 +22,36 @@
 		color: #fff;
 		margin-bottom: 2px;
 	}
-	/* PROJECT GRID */
 	.project-grid {
 	  display: grid;
 	  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 	  gap: 24px;
 	  margin-top: 30px;
 	}
-
-
-	.project-info img {
+	.project-card {
+	  position: relative;
+	  height: 200px;
+	  overflow: hidden;
+	  border-radius: 16px;
+	  transition: all 0.4s ease;
+	  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+	}
+	.project-card:hover {
+	  transform: translateY(-6px);
+	  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+	}
+	.project-card img {
 	  width: 100%;
 	  height: 100%;
 	  object-fit: cover;
-	  display: block;
-	}
-
-	.project-card {
-	  position: relative;
-	  overflow: hidden;
 	}
 
 	.project-overlay {
 	  position: absolute;
-	  bottom: 0;
-	  background: rgba(0,0,0,0.8);
-	  color: white;
+	  inset: 0;   /* top:0; right:0; bottom:0; left:0 */
+	  height: 100%;
 	  width: 100%;
-	  padding: 20px;
-	  transform: translateY(100%);
-	  transition: 0.4s ease;
 	}
-
-	.project-card:hover .project-overlay {
-	  transform: translateY(0);
-	}
-
 	</style>
   </head>
   <body>
@@ -178,7 +172,7 @@
 								  Improved mobile UX & checkout flow
 								</p>
 								<p><strong>Result:</strong> +32% conversion rate</p>
-								<a href="https://momzo.in/" target="_blank" class="btn btn-sm btn-light">
+								<a href="https://momzo.in/" target="_blank">
 								  Visit Store
 								</a>
 							  </div>
@@ -188,7 +182,7 @@
 						  <div class="project-overlay">
 							<h5>Dradiant</h5>
 							<p>Shopify Theme Customization & CRO</p>
-							<a href="https://mydradiant.com/" target="_blank" class="btn btn-sm btn-light">
+							<a href="https://mydradiant.com/" target="_blank">
 							  Visit Store
 							</a>
 						  </div>
@@ -205,7 +199,7 @@
 							conversion-driven layout and seamless repeat ordering.
 							</p>
 
-							<a href="https://bakalooindia.com/" target="_blank" class="btn btn-sm btn-light">
+							<a href="https://bakalooindia.com/" target="_blank">
 							  Visit Store
 							</a>
 						  </div>
@@ -223,7 +217,7 @@
 
 							<p><strong>Scope:</strong> Custom Development • UX Optimization • Performance Improvements</p>
 
-							<a href="https://sto.co.il/" target="_blank" class="btn btn-sm btn-light">
+							<a href="https://sto.co.il/" target="_blank">
 							  Visit Store
 							</a>
 						  </div>
@@ -314,7 +308,7 @@
 								<p>Optimized user flow for bookings, events and immersive experience showcase.</p>
 
 								<a href="https://vortexvirtualreality.dk/" target="_blank">
-								  Visit Website
+								  Visit Store
 								</a>
 							  </div>
 							</div>
@@ -344,7 +338,7 @@
 							<p>Optimized booking flow and performance for experience-based services.</p>
 
 							<a href="https://vortexvr.pl/" target="_blank">
-							  Visit Website
+							  Visit Store
 							</a>
 						  </div>
 						</div>
