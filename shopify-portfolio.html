@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Senior Shopify & Shopify Plus Developer | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #0D0D0D;
+    --bg2:      #141414;
+    --card:     #1C1C1C;
+    --border:   #2E2E2E;
+    --border2:  #3A3A3A;
+    --white:    #F5F5F0;
+    --off:      #A0A09A;
+    --dim:      #606060;
+    --green:    #00B67A;
+    --green-lt: #00D48E;
+    --green-dim: rgba(0,182,122,0.12);
+    --green-glow: rgba(0,182,122,0.28);
+    --gold:     #E8A320;
+    --gold-dim: rgba(232,163,32,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(13,13,13,0.90);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border);
+    transition: padding 0.3s;
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem;
+    color: var(--white); text-decoration: none; letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--green); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    color: var(--off); font-size: 0.85rem; font-weight: 500;
+    text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--green); color: #fff;
+    padding: 9px 20px; border-radius: 7px;
+    font-size: 0.83rem; font-weight: 600; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--green-lt); transform: translateY(-1px); }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 130px 60px 80px;
+    position: relative; overflow: hidden;
+    background: var(--bg);
+  }
+  .hero-noise {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px;
+  }
+  .hero-glow {
+    position: absolute; pointer-events: none;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,182,122,0.10) 0%, transparent 65%);
+    top: -100px; right: -150px;
+  }
+  .hero-glow2 {
+    position: absolute; pointer-events: none;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,163,32,0.06) 0%, transparent 65%);
+    bottom: 0; left: -100px;
+  }
+  .hero-inner { position: relative; max-width: 860px; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--green-dim); border: 1px solid rgba(0,182,122,0.30);
+    padding: 5px 14px; border-radius: 100px;
+    font-size: 0.72rem; font-weight: 700; color: var(--green);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 28px;
+    animation: fadeUp 0.7s ease both;
+  }
+  .live-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green); animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.6)} }
+
+  .hero-headline {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+    font-weight: 800; line-height: 1.08;
+    letter-spacing: -0.03em; color: var(--white);
+    animation: fadeUp 0.7s 0.1s ease both;
+    margin-bottom: 22px;
+  }
+  .hero-headline .hl { color: var(--green); }
+  .cursor {
+    display: inline-block; width: 3px; height: 0.8em;
+    background: var(--green); margin-left: 4px; vertical-align: middle;
+    animation: blink 1.1s step-end infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+  .hero-sub {
+    font-size: 1.1rem; color: var(--off); max-width: 540px;
+    line-height: 1.72; animation: fadeUp 0.7s 0.18s ease both; margin-bottom: 40px;
+  }
+  .hero-actions {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.26s ease both; margin-bottom: 56px;
+  }
+  .btn-primary {
+    background: var(--green); color: #fff;
+    padding: 14px 28px; border-radius: 9px;
+    font-size: 0.9rem; font-weight: 600; text-decoration: none;
+    transition: all 0.2s; display: inline-flex; align-items: center; gap: 7px;
+    box-shadow: 0 6px 28px var(--green-glow);
+  }
+  .btn-primary:hover { background: var(--green-lt); transform: translateY(-2px); box-shadow: 0 10px 36px var(--green-glow); }
+  .btn-secondary {
+    background: transparent; color: var(--white);
+    padding: 14px 28px; border-radius: 9px;
+    font-size: 0.9rem; font-weight: 600; text-decoration: none;
+    border: 1px solid var(--border2); transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .btn-secondary:hover { border-color: var(--green); color: var(--green); }
+
+  .trust-badges { display: flex; flex-wrap: wrap; gap: 10px; animation: fadeUp 0.7s 0.34s ease both; }
+  .badge {
+    display: flex; align-items: center; gap: 7px;
+    background: var(--card); border: 1px solid var(--border);
+    padding: 9px 16px; border-radius: 100px;
+    font-size: 0.78rem; font-weight: 500; color: var(--off);
+    transition: all 0.2s;
+  }
+  .badge:hover { border-color: var(--green); color: var(--white); }
+  .badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 96px 60px; }
+  .section-label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--green); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.9rem, 3.8vw, 2.9rem);
+    font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+    color: var(--white); margin-bottom: 16px;
+  }
+  .section-sub { font-size: 0.95rem; color: var(--off); max-width: 500px; line-height: 1.72; margin-bottom: 56px; }
+
+  /* ─── STATS ─── */
+  #stats { background: var(--bg2); padding: 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+  .stat-block {
+    padding: 52px 44px; text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .stat-block:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: 3.2rem; color: var(--white); letter-spacing: -0.04em; margin-bottom: 6px;
+  }
+  .stat-num em { color: var(--green); font-style: normal; }
+  .stat-label { font-size: 0.82rem; color: var(--dim); line-height: 1.5; }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--bg); }
+  .about-grid { display: grid; grid-template-columns: 260px 1fr; gap: 72px; align-items: start; max-width: 1100px; margin: 0 auto; }
+  .about-avatar {
+    width: 240px; height: 240px; border-radius: 18px;
+    background: linear-gradient(145deg, #1C1C1C, #242424);
+    border: 1px solid var(--border2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 5rem; margin-bottom: 24px; position: relative;
+  }
+  .about-avatar::after {
+    content: ''; position: absolute; inset: 0; border-radius: 18px;
+    background: linear-gradient(145deg, transparent 55%, var(--green-dim));
+  }
+  .about-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--white); margin-bottom: 4px; }
+  .about-role { font-size: 0.82rem; color: var(--green); font-weight: 600; margin-bottom: 20px; letter-spacing: 0.02em; }
+  .socials { display: flex; gap: 8px; }
+  .soc {
+    width: 34px; height: 34px; border-radius: 7px;
+    background: var(--card); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700; color: var(--dim); text-decoration: none;
+    transition: all 0.2s;
+  }
+  .soc:hover { border-color: var(--green); color: var(--white); background: var(--green-dim); }
+  .about-bio { font-size: 0.95rem; color: var(--off); line-height: 1.8; margin-bottom: 28px; }
+  .about-bio strong { color: var(--white); font-weight: 600; }
+  .skills-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
+  .skill-tag {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 9px 14px; border-radius: 7px;
+    font-size: 0.8rem; font-weight: 500; color: var(--off);
+    display: flex; align-items: center; gap: 7px; transition: all 0.2s;
+  }
+  .skill-tag:hover { border-color: var(--green); color: var(--white); }
+  .skill-tag::before { content: '→'; color: var(--green); font-size: 0.72rem; }
+
+  /* ─── PORTFOLIO ─── */
+  #portfolio { background: var(--bg2); }
+  .portfolio-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; max-width: 1100px; margin: 0 auto; }
+  .case-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden; transition: all 0.28s; cursor: pointer;
+  }
+  .case-card:hover { border-color: var(--green); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,182,122,0.10); }
+  .case-img {
+    height: 190px; position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center; font-size: 2.8rem;
+  }
+  .ci1 { background: linear-gradient(135deg, #0A1F16, #0D3326); }
+  .ci2 { background: linear-gradient(135deg, #1A1400, #332B00); }
+  .ci3 { background: linear-gradient(135deg, #001426, #002040); }
+  .ci4 { background: linear-gradient(135deg, #1A0A00, #341500); }
+  .case-tag {
+    position: absolute; top: 14px; left: 14px;
+    background: rgba(0,0,0,0.55); backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 3px 11px; border-radius: 100px;
+    font-size: 0.67rem; font-weight: 700; color: var(--white);
+    text-transform: uppercase; letter-spacing: 0.09em;
+  }
+  .result-badge {
+    position: absolute; bottom: 14px; right: 14px;
+    background: var(--green); color: #fff;
+    padding: 3px 11px; border-radius: 100px;
+    font-size: 0.72rem; font-weight: 700;
+  }
+  .case-body { padding: 24px 26px; }
+  .case-brand { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 4px; }
+  .case-niche { font-size: 0.75rem; color: var(--green); font-weight: 600; margin-bottom: 14px; letter-spacing: 0.02em; }
+  .case-row { margin-bottom: 10px; }
+  .case-row-label { font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); margin-bottom: 3px; }
+  .case-row-text { font-size: 0.83rem; color: #999; line-height: 1.55; }
+  .case-tech { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 14px; }
+  .tech-pill {
+    background: var(--bg2); border: 1px solid var(--border);
+    padding: 2px 9px; border-radius: 100px;
+    font-size: 0.68rem; font-weight: 600; color: var(--dim);
+  }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--bg); }
+  .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; max-width: 1100px; margin: 0 auto; }
+  .service-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 28px 24px; transition: all 0.25s; position: relative; overflow: hidden;
+  }
+  .service-card::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--green), transparent);
+    opacity: 0; transition: opacity 0.25s;
+  }
+  .service-card:hover { border-color: var(--border2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+  .service-card:hover::after { opacity: 1; }
+  .service-icon { font-size: 1.7rem; margin-bottom: 14px; }
+  .service-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; color: var(--white); margin-bottom: 8px; }
+  .service-desc { font-size: 0.82rem; color: var(--off); line-height: 1.65; }
+  .service-features { margin-top: 16px; display: flex; flex-direction: column; gap: 5px; }
+  .sf { font-size: 0.76rem; color: var(--dim); display: flex; align-items: center; gap: 6px; }
+  .sf::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 0.7rem; }
+
+  /* ─── TECH STACK ─── */
+  #techstack { background: var(--bg2); }
+  .tech-track-wrap { overflow: hidden; }
+  .tech-track { display: flex; gap: 14px; animation: scrollL 30s linear infinite; width: max-content; }
+  .tech-track-wrap:hover .tech-track { animation-play-state: paused; }
+  @keyframes scrollL { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .tech-item {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 24px;
+    display: flex; align-items: center; gap: 10px; white-space: nowrap; flex-shrink: 0;
+    transition: border-color 0.2s;
+  }
+  .tech-item:hover { border-color: var(--green); }
+  .tech-item-icon { font-size: 1.4rem; }
+  .tech-item-name { font-size: 0.82rem; font-weight: 600; color: var(--off); }
+
+  /* ─── TESTIMONIALS SLIDER ─── */
+  #testimonials { background: var(--bg); }
+  .testi-outer { max-width: 1100px; margin: 0 auto; }
+  .testi-slider-wrap { position: relative; overflow: hidden; }
+  .testi-track {
+    display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    will-change: transform;
+  }
+  .testi-slide {
+    min-width: calc(33.333% - 11px); margin-right: 16px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 30px 28px; flex-shrink: 0;
+    transition: border-color 0.2s;
+  }
+  .testi-slide:hover { border-color: var(--border2); }
+  .testi-stars { color: var(--gold); font-size: 0.82rem; margin-bottom: 10px; letter-spacing: 2px; }
+  .testi-quote-mark { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.8rem; color: var(--green); line-height: 1; margin-bottom: 12px; opacity: 0.5; }
+  .testi-text { font-size: 0.875rem; color: #BBBBB5; line-height: 1.78; margin-bottom: 24px; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-av {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: linear-gradient(135deg, #1C2B25, #2A4035);
+    border: 2px solid var(--green-dim);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: 1rem; color: var(--green); flex-shrink: 0;
+  }
+  .testi-name { font-size: 0.87rem; font-weight: 600; color: var(--white); }
+  .testi-company { font-size: 0.75rem; color: var(--dim); margin-top: 2px; }
+
+  /* Slider controls */
+  .testi-controls {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 36px;
+  }
+  .testi-dots { display: flex; gap: 8px; }
+  .testi-dot {
+    width: 8px; height: 8px; border-radius: 100px;
+    background: var(--border2); cursor: pointer; transition: all 0.3s;
+    border: none; padding: 0;
+  }
+  .testi-dot.active { background: var(--green); width: 24px; }
+  .testi-arrows { display: flex; gap: 10px; }
+  .testi-arrow {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--card); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--off); font-size: 1rem;
+    transition: all 0.2s;
+  }
+  .testi-arrow:hover { border-color: var(--green); color: var(--green); background: var(--green-dim); }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--bg2); }
+  .contact-wrap { display: grid; grid-template-columns: 1fr 1.35fr; gap: 72px; align-items: start; max-width: 1100px; margin: 0 auto; }
+  .contact-info-row { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 24px; }
+  .c-icon {
+    width: 42px; height: 42px; border-radius: 9px;
+    background: var(--green-dim); border: 1px solid rgba(0,182,122,0.22);
+    display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;
+  }
+  .c-label { font-size: 0.7rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 3px; }
+  .c-val { font-size: 0.88rem; color: var(--white); font-weight: 500; }
+  form { display: flex; flex-direction: column; gap: 14px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  label { display: block; font-size: 0.72rem; font-weight: 600; color: var(--dim); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; }
+  input, select, textarea {
+    width: 100%; background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 14px;
+    color: var(--white); font-size: 0.875rem; font-family: 'Inter', sans-serif;
+    outline: none; transition: border-color 0.2s, box-shadow 0.2s; appearance: none;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px var(--green-dim); }
+  input::placeholder, textarea::placeholder { color: #3A3A3A; }
+  select option { background: var(--card); color: var(--white); }
+  textarea { resize: vertical; min-height: 110px; }
+  .btn-submit {
+    background: var(--green); color: #fff;
+    padding: 14px 30px; border-radius: 9px;
+    font-size: 0.9rem; font-weight: 600; border: none; cursor: pointer;
+    transition: all 0.2s; box-shadow: 0 6px 24px var(--green-glow);
+    display: inline-flex; align-items: center; gap: 7px; align-self: flex-start;
+  }
+  .btn-submit:hover { background: var(--green-lt); transform: translateY(-2px); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--bg); border-top: 1px solid var(--border);
+    padding: 40px 60px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.95rem; color: var(--white); text-decoration: none; }
+  .footer-logo span { color: var(--green); }
+  .footer-avail {
+    display: flex; align-items: center; gap: 7px;
+    background: var(--green-dim); border: 1px solid rgba(0,182,122,0.25);
+    padding: 7px 14px; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 600; color: var(--green);
+  }
+  .footer-avail::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  .footer-copy { font-size: 0.75rem; color: var(--dim); }
+
+  /* ─── REVEAL ─── */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 960px) {
+    nav { padding: 14px 24px; }
+    .nav-links { display: none; }
+    section { padding: 64px 24px; }
+    #hero { padding: 110px 24px 56px; }
+    .about-grid, .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: repeat(2,1fr); }
+    .stats-grid { grid-template-columns: repeat(2,1fr); }
+    .stat-block { border-right: none; border-bottom: 1px solid var(--border); }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; align-items: flex-start; padding: 32px 24px; }
+    .testi-slide { min-width: calc(100% - 0px); margin-right: 16px; }
+  }
+  @media (max-width: 640px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .testi-slide { min-width: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#hero" class="nav-logo">dev<span>.</span>studio</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book a Project</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><div class="live-dot"></div>Available for Shopify Plus Projects</div>
+    <h1 class="hero-headline">
+      Senior Shopify &amp;<br>
+      <span class="hl">Shopify Plus</span><br>
+      Developer<span class="cursor"></span>
+    </h1>
+    <p class="hero-sub">Helping high-growth eCommerce brands scale with clean Liquid architecture and performance-driven development.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">📅 Book a Shopify Project</a>
+      <a href="#portfolio" class="btn-secondary">View My Work →</a>
+    </div>
+    <div class="trust-badges">
+      <div class="badge"><div class="badge-dot"></div>7+ Years Shopify Experience</div>
+      <div class="badge"><div class="badge-dot"></div>50+ Stores Delivered Globally</div>
+      <div class="badge"><div class="badge-dot"></div>Shopify Plus &amp; Custom App Expertise</div>
+      <div class="badge"><div class="badge-dot"></div>Long-Term Client Partnerships</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stats-grid">
+    <div class="stat-block reveal"><div class="stat-num">50<em>+</em></div><div class="stat-label">Shopify Stores<br>Delivered Globally</div></div>
+    <div class="stat-block reveal"><div class="stat-num">7<em>+</em></div><div class="stat-label">Years Shopify<br>Ecosystem Expertise</div></div>
+    <div class="stat-block reveal"><div class="stat-num">2<em>×</em></div><div class="stat-label">Average Store Speed<br>Improvement</div></div>
+    <div class="stat-block reveal"><div class="stat-num">98<em>%</em></div><div class="stat-label">Client Satisfaction<br>&amp; Repeat Engagements</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="about-avatar">👨‍💻</div>
+      <div class="about-name">Alex Morgan</div>
+      <div class="about-role">Senior Shopify Plus Developer</div>
+      <div class="socials">
+        <a href="#" class="soc">in</a>
+        <a href="#" class="soc">gh</a>
+        <a href="#" class="soc">tw</a>
+        <a href="#" class="soc">@</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="section-label">About Me</div>
+      <h2 class="section-title">Architecting eCommerce<br>Excellence on Shopify</h2>
+      <p class="about-bio">I'm a <strong>Senior Shopify &amp; Shopify Plus Developer</strong> with over 7 years of experience building high-performance storefronts for global eCommerce brands. From bespoke Liquid theme architecture to complex third-party integrations — I deliver clean, scalable, conversion-focused solutions that grow with your business.</p>
+      <p class="about-bio">My work spans fashion, DTC brands, subscription commerce, and B2B Shopify Plus — consistently delivering <strong>faster stores, better UX, and measurable revenue impact</strong>.</p>
+      <div class="skills-grid">
+        <div class="skill-tag">Shopify Plus</div>
+        <div class="skill-tag">Liquid Architecture</div>
+        <div class="skill-tag">Custom Theme Development</div>
+        <div class="skill-tag">Shopify APIs &amp; GraphQL</div>
+        <div class="skill-tag">Headless Commerce</div>
+        <div class="skill-tag">Performance Optimization</div>
+        <div class="skill-tag">Subscription &amp; ERP Integrations</div>
+        <div class="skill-tag">JavaScript / PHP</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label reveal">Case Studies</div>
+    <h2 class="section-title reveal">Selected Work</h2>
+    <p class="section-sub reveal">Real brands, real results — built on Shopify &amp; Shopify Plus.</p>
+    <div class="portfolio-grid">
+      <div class="case-card reveal">
+        <div class="case-img ci1"><span>👗</span><div class="case-tag">Shopify Plus</div><div class="result-badge">+42% Conversion</div></div>
+        <div class="case-body">
+          <div class="case-brand">LuxeWear London</div>
+          <div class="case-niche">Premium Fashion · UK &amp; EU Markets</div>
+          <div class="case-row"><div class="case-row-label">Challenge</div><div class="case-row-text">Aging theme causing 4.2s load times with cart abandonment at 78% and no mobile optimization.</div></div>
+          <div class="case-row"><div class="case-row-label">Solution</div><div class="case-row-text">Full custom rebuild with modular Liquid sections, lazy loading, and redesigned mobile cart flow.</div></div>
+          <div class="case-tech"><span class="tech-pill">Shopify Plus</span><span class="tech-pill">Liquid</span><span class="tech-pill">JavaScript</span><span class="tech-pill">Klaviyo</span></div>
+        </div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-img ci2"><span>📦</span><div class="case-tag">Custom App</div><div class="result-badge">2.8× Speed Boost</div></div>
+        <div class="case-body">
+          <div class="case-brand">NutriBox USA</div>
+          <div class="case-niche">DTC Subscription · North America</div>
+          <div class="case-row"><div class="case-row-label">Challenge</div><div class="case-row-text">Complex subscription logic across 200+ SKUs with custom bundle builder and ReCharge integration.</div></div>
+          <div class="case-row"><div class="case-row-label">Solution</div><div class="case-row-text">Custom Shopify app with subscription management UI, ERP sync via REST API, and headless bundle configurator.</div></div>
+          <div class="case-tech"><span class="tech-pill">Shopify API</span><span class="tech-pill">ReCharge</span><span class="tech-pill">PHP</span><span class="tech-pill">ERP</span></div>
+        </div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-img ci3"><span>🏠</span><div class="case-tag">Migration</div><div class="result-badge">+61% Revenue MoM</div></div>
+        <div class="case-body">
+          <div class="case-brand">HomeHaven AU</div>
+          <div class="case-niche">Home &amp; Lifestyle · Australia</div>
+          <div class="case-row"><div class="case-row-label">Challenge</div><div class="case-row-text">WooCommerce store with 8,000+ products struggling with performance, poor UX, and no B2B pricing.</div></div>
+          <div class="case-row"><div class="case-row-label">Solution</div><div class="case-row-text">Full migration to Shopify Plus with B2B pricing logic, tiered wholesale accounts, and custom filtering.</div></div>
+          <div class="case-tech"><span class="tech-pill">Shopify Plus</span><span class="tech-pill">Liquid</span><span class="tech-pill">B2B</span><span class="tech-pill">Metafields</span></div>
+        </div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-img ci4"><span>☕</span><div class="case-tag">Headless</div><div class="result-badge">98 PageSpeed</div></div>
+        <div class="case-body">
+          <div class="case-brand">Roast Republic</div>
+          <div class="case-niche">Specialty Coffee · Global DTC</div>
+          <div class="case-row"><div class="case-row-label">Challenge</div><div class="case-row-text">Brand needed blazing performance and a content-rich editorial storefront beyond standard Shopify themes.</div></div>
+          <div class="case-row"><div class="case-row-label">Solution</div><div class="case-row-text">Headless Shopify with Hydrogen/Remix frontend, Sanity CMS integration, and custom subscription upsell flows.</div></div>
+          <div class="case-tech"><span class="tech-pill">Headless</span><span class="tech-pill">Hydrogen</span><span class="tech-pill">Sanity</span><span class="tech-pill">GraphQL</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label reveal">What I Do</div>
+    <h2 class="section-title reveal">Services</h2>
+    <p class="section-sub reveal">End-to-end Shopify development — from new builds to complex integrations.</p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">🛍️</div>
+        <div class="service-name">Shopify Store Development</div>
+        <div class="service-desc">Custom-built storefronts engineered for performance, conversion, and brand identity.</div>
+        <div class="service-features"><div class="sf">Custom Liquid theme development</div><div class="sf">Mobile-first responsive design</div><div class="sf">Conversion rate optimization</div></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">⚡</div>
+        <div class="service-name">Shopify Plus Development</div>
+        <div class="service-desc">Enterprise-grade builds using Shopify Plus exclusives — scripts, flows, B2B, multi-storefront.</div>
+        <div class="service-features"><div class="sf">Script Editor &amp; Shopify Functions</div><div class="sf">B2B &amp; wholesale pricing</div><div class="sf">Multi-currency &amp; multi-store</div></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🎨</div>
+        <div class="service-name">Custom Theme Development</div>
+        <div class="service-desc">Pixel-perfect themes built from scratch or extended from Dawn with advanced section architecture.</div>
+        <div class="service-features"><div class="sf">Theme architecture &amp; section design</div><div class="sf">Performance-first Liquid code</div><div class="sf">Theme Store compliant code</div></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🔧</div>
+        <div class="service-name">Shopify App Development</div>
+        <div class="service-desc">Bespoke private apps and embedded app extensions to solve unique business workflows.</div>
+        <div class="service-features"><div class="sf">Admin embedded apps</div><div class="sf">App Extensions &amp; UI Extensions</div><div class="sf">REST &amp; GraphQL Admin API</div></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🚀</div>
+        <div class="service-name">Speed Optimization</div>
+        <div class="service-desc">Targeted improvements to hit 90+ PageSpeed scores and reduce Time-to-Interactive.</div>
+        <div class="service-features"><div class="sf">Core Web Vitals optimization</div><div class="sf">Image &amp; asset optimization</div><div class="sf">Script &amp; render-blocking fixes</div></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🔗</div>
+        <div class="service-name">Third-party Integrations</div>
+        <div class="service-desc">Connect your stack — ERP, CRM, PIM, marketing tools, subscriptions, and more.</div>
+        <div class="service-features"><div class="sf">ERP &amp; inventory sync</div><div class="sf">Klaviyo, Yotpo, ReCharge</div><div class="sf">Custom webhook &amp; API pipelines</div></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">📦</div>
+        <div class="service-name">Migration &amp; Scaling</div>
+        <div class="service-desc">Zero-downtime migrations from WooCommerce, Magento, BigCommerce — with full data integrity.</div>
+        <div class="service-features"><div class="sf">Product, order &amp; customer migration</div><div class="sf">SEO-safe URL redirects</div><div class="sf">Post-migration QA &amp; support</div></div>
+      </div>
+      <div class="service-card reveal" style="border-color:rgba(0,182,122,0.2);background:linear-gradient(135deg,rgba(0,182,122,0.06),var(--card));">
+        <div class="service-icon">🌐</div>
+        <div class="service-name">Headless Commerce</div>
+        <div class="service-desc">Shopify as your commerce backbone with blazing-fast frontend frameworks for ultimate performance.</div>
+        <div class="service-features"><div class="sf">Hydrogen &amp; Remix builds</div><div class="sf">Storefront API &amp; GraphQL</div><div class="sf">Headless CMS integration</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section id="techstack">
+  <div style="max-width:1100px;margin:0 auto;margin-bottom:44px;">
+    <div class="section-label reveal">Tools &amp; Technologies</div>
+    <h2 class="section-title reveal">Tech Stack</h2>
+    <p class="section-sub reveal">A modern, battle-tested toolkit for every layer of the Shopify ecosystem.</p>
+  </div>
+  <div class="tech-track-wrap">
+    <div class="tech-track" id="techTrack">
+      <div class="tech-item"><div class="tech-item-icon">🛍️</div><div class="tech-item-name">Shopify</div></div>
+      <div class="tech-item"><div class="tech-item-icon">⚡</div><div class="tech-item-name">Shopify Plus</div></div>
+      <div class="tech-item"><div class="tech-item-icon">💧</div><div class="tech-item-name">Liquid</div></div>
+      <div class="tech-item"><div class="tech-item-icon">🟨</div><div class="tech-item-name">JavaScript</div></div>
+      <div class="tech-item"><div class="tech-item-icon">🐘</div><div class="tech-item-name">PHP</div></div>
+      <div class="tech-item"><div class="tech-item-icon">🌐</div><div class="tech-item-name">GraphQL</div></div>
+      <div class="tech-item"><div class="tech-item-icon">🔌</div><div class="tech-item-name">REST APIs</div></div>
+      <div class="tech-item"><div class="tech-item-icon">🎨</div><div class="tech-item-name">HTML / CSS</div></div>
+      <div class="tech-item"><div class="tech-item-icon">🌿</div><div class="tech-item-name">Git</div></div>
+      <div class="tech-item"><div class="tech-item-icon">💎</div><div class="tech-item-name">Hydrogen</div></div>
+      <div class="tech-item"><div class="tech-item-icon">📊</div><div class="tech-item-name">ERP Integrations</div></div>
+      <div class="tech-item"><div class="tech-item-icon">📱</div><div class="tech-item-name">Klaviyo</div></div>
+      <div class="tech-item"><div class="tech-item-icon">🔄</div><div class="tech-item-name">ReCharge</div></div>
+      <div class="tech-item"><div class="tech-item-icon">⭐</div><div class="tech-item-name">Yotpo</div></div>
+      <!-- duplicate for loop -->
+      <div class="tech-item"><div class="tech-item-icon">🛍️</div><div class="tech-item-name">Shopify</div></div>
+      <div class="tech-item"><div class="tech-item-icon">⚡</div><div class="tech-item-name">Shopify Plus</div></div>
+      <div class="tech-item"><div class="tech-item-icon">💧</div><div class="tech-item-name">Liquid</div></div>
+      <div class="tech-item"><div class="tech-item-icon">🟨</div><div class="tech-item-name">JavaScript</div></div>
+      <div class="tech-item"><div class="tech-item-icon">🐘</div><div class="tech-item-name">PHP</div></div>
+      <div class="tech-item"><div class="tech-item-icon">🌐</div><div class="tech-item-name">GraphQL</div></div>
+      <div class="tech-item"><div class="tech-item-icon">🔌</div><div class="tech-item-name">REST APIs</div></div>
+      <div class="tech-item"><div class="tech-item-icon">🎨</div><div class="tech-item-name">HTML / CSS</div></div>
+      <div class="tech-item"><div class="tech-item-icon">🌿</div><div class="tech-item-name">Git</div></div>
+      <div class="tech-item"><div class="tech-item-icon">💎</div><div class="tech-item-name">Hydrogen</div></div>
+      <div class="tech-item"><div class="tech-item-icon">📊</div><div class="tech-item-name">ERP Integrations</div></div>
+      <div class="tech-item"><div class="tech-item-icon">📱</div><div class="tech-item-name">Klaviyo</div></div>
+      <div class="tech-item"><div class="tech-item-icon">🔄</div><div class="tech-item-name">ReCharge</div></div>
+      <div class="tech-item"><div class="tech-item-icon">⭐</div><div class="tech-item-name">Yotpo</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testi-outer">
+    <div class="section-label reveal">Client Reviews</div>
+    <h2 class="section-title reveal">What Clients Say</h2>
+    <p class="section-sub reveal">Trusted by eCommerce brands across UK, USA, Australia, and Europe.</p>
+
+    <div class="testi-slider-wrap reveal">
+      <div class="testi-track" id="testiTrack">
+
+        <div class="testi-slide">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote-mark">"</div>
+          <div class="testi-text">Alex completely transformed our Shopify Plus store. Load time dropped from 4.2s to under 1.5s and our conversion rate jumped 42% in the first month. Exceptional work — clean code, zero drama, delivered on time.</div>
+          <div class="testi-author">
+            <div class="testi-av">S</div>
+            <div><div class="testi-name">Sarah Mitchell</div><div class="testi-company">Head of eCommerce · LuxeWear London</div></div>
+          </div>
+        </div>
+
+        <div class="testi-slide">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote-mark">"</div>
+          <div class="testi-text">We had a complex subscription + ERP challenge three other developers couldn't crack. Alex solved it in two weeks. The integration is seamless — our ops team loves it and we keep coming back for every new project.</div>
+          <div class="testi-author">
+            <div class="testi-av">J</div>
+            <div><div class="testi-name">James Okafor</div><div class="testi-company">CTO · NutriBox USA</div></div>
+          </div>
+        </div>
+
+        <div class="testi-slide">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote-mark">"</div>
+          <div class="testi-text">Our WooCommerce migration to Shopify Plus was completely painless — 8,000 products, zero data loss, 98 PageSpeed from day one. Revenue grew 61% month-on-month after launch. Couldn't recommend more highly.</div>
+          <div class="testi-author">
+            <div class="testi-av">M</div>
+            <div><div class="testi-name">Marie Chen</div><div class="testi-company">Founder · HomeHaven Australia</div></div>
+          </div>
+        </div>
+
+        <div class="testi-slide">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote-mark">"</div>
+          <div class="testi-text">Our headless Shopify build is a masterpiece — 98 PageSpeed, beautiful editorial design, and subscription logic that just works. Alex understood our brand from the first call and delivered beyond expectations.</div>
+          <div class="testi-author">
+            <div class="testi-av">R</div>
+            <div><div class="testi-name">Ryan Patel</div><div class="testi-company">CEO · Roast Republic</div></div>
+          </div>
+        </div>
+
+        <div class="testi-slide">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote-mark">"</div>
+          <div class="testi-text">Best Shopify developer I've worked with in 10 years of running eCommerce brands. Alex doesn't just build — he thinks strategically about your business and delivers solutions that actually move revenue. A true partner.</div>
+          <div class="testi-author">
+            <div class="testi-av">L</div>
+            <div><div class="testi-name">Laura Stevenson</div><div class="testi-company">Director of Digital · Nordic Goods Co.</div></div>
+          </div>
+        </div>
+
+        <div class="testi-slide">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote-mark">"</div>
+          <div class="testi-text">We migrated from Magento and it was the best decision we ever made. Alex handled every edge case, our B2B portal works perfectly, and our team can finally manage the store without a developer on call 24/7.</div>
+          <div class="testi-author">
+            <div class="testi-av">T</div>
+            <div><div class="testi-name">Thomas Bauer</div><div class="testi-company">VP eCommerce · TechParts Berlin</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="testi-controls">
+      <div class="testi-dots" id="testiDots"></div>
+      <div class="testi-arrows">
+        <button class="testi-arrow" id="testiPrev" aria-label="Previous">&#8592;</button>
+        <button class="testi-arrow" id="testiNext" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="reveal">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Let's Build Something<br>Exceptional</h2>
+      <p style="font-size:.9rem;color:var(--off);line-height:1.72;margin-bottom:36px;">Ready to scale your Shopify store? Tell me about your project and I'll get back to you within 24 hours.</p>
+      <div class="contact-info-row"><div class="c-icon">📧</div><div><div class="c-label">Email</div><div class="c-val">hello@alexmorgan.dev</div></div></div>
+      <div class="contact-info-row"><div class="c-icon">💬</div><div><div class="c-label">Response Time</div><div class="c-val">Within 24 hours</div></div></div>
+      <div class="contact-info-row"><div class="c-icon">🌍</div><div><div class="c-label">Timezone</div><div class="c-val">GMT+0 · Available globally</div></div></div>
+      <div class="contact-info-row"><div class="c-icon">📅</div><div><div class="c-label">Availability</div><div class="c-val">Now booking Q3 2026</div></div></div>
+    </div>
+    <div class="reveal">
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+        <!-- Netlify hidden fields -->
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+        <div class="form-row">
+          <div><label for="name">Full Name</label><input id="name" type="text" name="name" placeholder="Sarah Johnson" required></div>
+          <div><label for="email">Email Address</label><input id="email" type="email" name="email" placeholder="sarah@brand.com" required></div>
+        </div>
+        <div><label for="company">Company / Brand</label><input id="company" type="text" name="company" placeholder="LuxeWear Ltd."></div>
+        <div>
+          <label for="budget">Project Budget</label>
+          <select id="budget" name="budget">
+            <option value="">Select budget range...</option>
+            <option>$2,000 – $5,000</option>
+            <option>$5,000 – $15,000</option>
+            <option>$15,000 – $30,000</option>
+            <option>$30,000 – $75,000</option>
+            <option>$75,000+</option>
+          </select>
+        </div>
+        <div><label for="requirements">Project Requirements</label><textarea id="requirements" name="requirements" placeholder="Tell me about your Shopify project — what you're building, current challenges, and your goals..."></textarea></div>
+        <button type="submit" class="btn-submit" id="submitBtn">Send Inquiry →</button>
+      </form>
+
+      <!-- Success message (hidden by default) -->
+      <div id="formSuccess" style="display:none; margin-top:24px; background:var(--green-dim); border:1px solid rgba(0,182,122,0.3); border-radius:12px; padding:28px 24px; text-align:center;">
+        <div style="font-size:2rem; margin-bottom:12px;">✅</div>
+        <div style="font-family:'Syne',sans-serif; font-weight:700; font-size:1.1rem; color:var(--white); margin-bottom:8px;">Inquiry Sent Successfully!</div>
+        <div style="font-size:0.85rem; color:var(--off); line-height:1.6;">Thanks for reaching out. I'll review your project details and get back to you within <strong style="color:var(--white);">24 hours</strong>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#hero" class="footer-logo">dev<span>.</span>studio</a>
+  <div class="footer-avail">Currently booking Shopify projects for Q3 2026</div>
+  <div class="footer-copy">© 2026 Alex Morgan · Senior Shopify Plus Developer</div>
+</footer>
+
+<script>
+  /* ── SCROLL REVEAL ── */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const siblings = [...e.target.parentElement.querySelectorAll('.reveal:not(.visible)')];
+      const d = siblings.indexOf(e.target) * 75;
+      setTimeout(() => e.target.classList.add('visible'), d);
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ── NAV SHRINK ── */
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.style.padding = scrollY > 50 ? '12px 60px' : '18px 60px';
+  }, { passive: true });
+
+  /* ── TESTIMONIAL SLIDER ── */
+  const track = document.getElementById('testiTrack');
+  const dotsEl = document.getElementById('testiDots');
+  const slides = track.querySelectorAll('.testi-slide');
+  const total = slides.length;
+  let perView = window.innerWidth <= 640 ? 1 : window.innerWidth <= 960 ? 1 : 3;
+  let current = 0;
+  const maxIndex = total - perView;
+
+  // build dots
+  function buildDots() {
+    dotsEl.innerHTML = '';
+    const numDots = maxIndex + 1;
+    for (let i = 0; i <= maxIndex; i++) {
+      const d = document.createElement('button');
+      d.className = 'testi-dot' + (i === current ? ' active' : '');
+      d.setAttribute('aria-label', `Go to slide ${i+1}`);
+      d.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function goTo(idx) {
+    current = Math.max(0, Math.min(idx, maxIndex));
+    const slideW = slides[0].offsetWidth + 16;
+    track.style.transform = `translateX(-${current * slideW}px)`;
+    dotsEl.querySelectorAll('.testi-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  document.getElementById('testiPrev').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('testiNext').addEventListener('click', () => goTo(current + 1));
+
+  // keyboard nav
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(current + 1);
+  });
+
+  // auto-play
+  let autoplay = setInterval(() => goTo(current < maxIndex ? current + 1 : 0), 4500);
+  track.addEventListener('mouseenter', () => clearInterval(autoplay));
+  track.addEventListener('mouseleave', () => {
+    clearInterval(autoplay);
+    autoplay = setInterval(() => goTo(current < maxIndex ? current + 1 : 0), 4500);
+  });
+
+  // touch swipe
+  let touchStartX = 0;
+  track.addEventListener('touchstart', e => touchStartX = e.touches[0].clientX, { passive: true });
+  track.addEventListener('touchend', e => {
+    const dx = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 40) goTo(dx > 0 ? current + 1 : current - 1);
+  });
+
+  // responsive recalc
+  window.addEventListener('resize', () => {
+    const newPer = window.innerWidth <= 960 ? 1 : 3;
+    if (newPer !== perView) { perView = newPer; current = 0; buildDots(); goTo(0); }
+  });
+
+  buildDots();
+  goTo(0);
+
+  /* ── NETLIFY FORM SUBMIT ── */
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = document.getElementById('submitBtn');
+
+    // Loading state
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    btn.style.opacity = '0.75';
+    btn.style.cursor = 'not-allowed';
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      });
+
+      if (response.ok) {
+        // Hide form, show success
+        form.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    } catch (err) {
+      // Error state
+      btn.disabled = false;
+      btn.textContent = '✕ Failed — Try Again';
+      btn.style.background = '#B03A2E';
+      btn.style.opacity = '1';
+      btn.style.cursor = 'pointer';
+      btn.style.boxShadow = 'none';
+      setTimeout(() => {
+        btn.textContent = 'Send Inquiry →';
+        btn.style.background = '';
+        btn.style.boxShadow = '';
+      }, 3000);
+    }
+  }
+</script>
+</body>
+</html>
