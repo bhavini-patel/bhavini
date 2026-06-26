@@ -1,557 +1,1653 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Senior Shopify Plus Developer with 7+ years of experience building high-performance eCommerce stores, custom Shopify themes, and scalable solutions.">
-    <meta name="author" content="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bhavini Patel — Senior Shopify Plus Developer with 7+ years experience. Helping eCommerce brands build, scale and optimize high-performance Shopify stores.">
+  <meta name="keywords" content="Shopify Plus Developer, Custom Shopify Theme, Liquid Developer, Shopify Expert, eCommerce Developer">
+  <meta name="author" content="Bhavini Patel">
+  <meta property="og:title" content="Bhavini Patel | Senior Shopify Plus Developer">
+  <meta property="og:description" content="Helping high-growth eCommerce brands scale with clean Liquid architecture and performance-driven Shopify development.">
+  <meta property="og:type" content="website">
+  <title>Bhavini Patel | Senior Shopify Plus Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ─── TOKENS ─── */
+    :root {
+      --bg:        #0A0F1E;
+      --bg2:       #0F1628;
+      --bg3:       #141B2E;
+      --accent:    #00E5A0;
+      --accent2:   #00B37D;
+      --white:     #FFFFFF;
+      --muted:     #8892A4;
+      --border:    rgba(255,255,255,0.07);
+      --card:      rgba(255,255,255,0.04);
+      --card-h:    rgba(255,255,255,0.07);
+      --display:   'Syne', sans-serif;
+      --body:      'Inter', sans-serif;
+      --radius:    16px;
+      --radius-sm: 10px;
+      --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
 
-    <title>Bhavini Patel | Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="images/undraw/favicon.ico">
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/unicons.css">  
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent2); border-radius: 2px; }
 
-    <!-- MAIN STYLE -->
-    <link rel="stylesheet" href="css/tooplate-style.css">
-    <style>
-		.swiper-pagination {
-		  position: relative;
-		  bottom: auto;
-		  margin-top: 20px;
-		}
-		.container {
-		  max-width: 1200px;
-		}
-		section#contact h2, section#contact p {
-			color: #fff;
-		}
-		.project-card p {
-			font-size: 14px;
-			color: #fff;
-			margin-bottom: 2px;
-		}
-		.project-grid {
-		  display: grid;
-		  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-		  gap: 24px;
-		  margin-top: 30px;
-		}
-		.project-card {
-		  position: relative;
-		  height: 200px;
-		  overflow: hidden;
-		  border-radius: 16px;
-		  transition: all 0.4s ease;
-		  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-		}
-		.project-card:hover {
-		  transform: translateY(-6px);
-		  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-		}
-		.project-card img {
-		  width: 100%;
-		  height: 100%;
-		  object-fit: cover;
-		}
-		.project-overlay {
-		  position: absolute;
-		  bottom: 0;
-		  background: rgba(0,0,0,0.8);
-		  color: white; 
-		  padding: 20px;
-		  opacity: 0;
-		  transform: translateY(20px);
-		  transition: all 0.4s ease;
-		  inset: 0;   /* top:0; right:0; bottom:0; left:0 */
-		  height: 100%;
-		  width: 100%;
-		  display: flex;
-		  flex-direction: column;
-		  justify-content: center;
-		}
-		.project-card:hover .project-overlay {
-		  opacity: 1;
-		  transform: translateY(0);
-		}
-		.nav-cta {
-		  padding: 8px 20px;
-		  border-radius: 30px;
-		  font-weight: 600;
-		  transition: all 0.3s ease;
-		}
-		.nav-cta:hover {
-		  transform: translateY(-2px);
-		  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-		}
-		.project-overlay a {
-		  display: inline-block;
-		  margin-top: 10px;
-		  padding: 6px 16px;
-		  background: #fff;
-		  color: #000;
-		  border-radius: 20px;
-		  font-size: 14px;
-		  font-weight: 600;
-		  text-decoration: none;
-		  transition: all 0.3s ease;
-		}
-		.project-overlay a:hover {
-		  background: #000;
-		  color: #fff;
-		}
-		@media (max-width:767px){
-			h1{
-			   font-size: 28px;
-			}
-			h2 {
-			   font-size: 22px;
-			}
-		}
-	</style>
-  </head>
-  <body>
+    /* ─── SELECTION ─── */
+    ::selection { background: var(--accent); color: var(--bg); }
 
-    <!-- MENU -->
-    <nav class="navbar navbar-expand-sm navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><path fill="currentColor" d="M9.6 22.88V10.6h14.8L25.98 9H8v13.88h1.6z" class="clr-i-outline clr-i-outline-path-1"/><path fill="currentColor" d="M6 7h24v16h2V6.5A1.5 1.5 0 0 0 30.5 5h-25A1.5 1.5 0 0 0 4 6.5V23h2Z" class="clr-i-outline clr-i-outline-path-2"/><path fill="currentColor" d="M1 25v3.4A2.6 2.6 0 0 0 3.6 31h28.74a2.6 2.6 0 0 0 2.6-2.6V25Zm32 3.4a.6.6 0 0 1-.6.6H3.56a.6.6 0 0 1-.6-.6v-1.87h9.95a1.64 1.64 0 0 0 1.5 1h7.13a1.64 1.64 0 0 0 1.5-1H33Z" class="clr-i-outline clr-i-outline-path-3"/><path fill="none" d="M0 0h36v36H0z"/></svg>
-              Bh@vini</a>
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      background: rgba(10,15,30,0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: background var(--transition);
+    }
+    .nav-logo {
+      font-family: var(--display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      gap: 2.25rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1.5px;
+      background: var(--accent);
+      transition: width var(--transition);
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--bg) !important;
+      padding: 9px 22px;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      transition: all var(--transition) !important;
+    }
+    .nav-cta:hover {
+      background: var(--white) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,229,160,0.25);
+    }
+    .nav-cta::after { display: none !important; }
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 1100;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link"><span data-hover="About">About</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#project" class="nav-link"><span data-hover="Projects">Projects</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#reviews" class="nav-link"><span data-hover="Reviews">Reviews</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a>
-                    </li>
-                </ul>
+    /* ─── DOT GRID BG ─── */
+    .dot-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 36px 36px;
+      pointer-events: none;
+    }
 
-                <ul class="navbar-nav ml-lg-auto">
-				  <li class="nav-item ml-lg-3">
-					<a href="#contact" class="btn btn-primary nav-cta">
-					  Book a Call
-					</a>
-				  </li>
-				</ul>
-            </div>
-        </div>
-    </nav>
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 110px 5% 80px;
+      overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(0,229,160,0.10) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,229,160,0.1);
+      border: 1px solid rgba(0,229,160,0.25);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 1.75rem;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+    .hero-title {
+      font-family: var(--display);
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title .accent { color: var(--accent); }
+    .hero-title .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 0.85em;
+      background: var(--accent);
+      margin-left: 4px;
+      vertical-align: middle;
+      border-radius: 2px;
+      animation: blink 1.1s step-end infinite;
+    }
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: all var(--transition);
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover {
+      background: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,229,160,0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1.5px solid var(--border);
+      transition: all var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .stat-item {}
+    .stat-num {
+      font-family: var(--display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-num .acc { color: var(--accent); }
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+    }
+    .stat-divider {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+    }
 
-    <!-- ABOUT -->
-    <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
-        <div class="container">
-            <div class="row">
-                
-                <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
-                    <div class="about-text">
-                         
-                        <h1>
-						  Senior Shopify & Shopify Plus Developer
-						</h1>
-						<p class="lead">
-						  Helping high-growth eCommerce brands scale with clean Liquid architecture and performance-driven development.
-						</p>
+    /* ─── SECTIONS ─── */
+    section { padding: 96px 5%; }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--display);
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+    .section-header { margin-bottom: 3.5rem; }
 
-                        <p><strong>Core Skills:</strong></p>
-						<p>
-						Shopify Plus • Liquid Architecture • Custom Theme Development • 
-						Shopify APIs • Headless Integrations • Performance Optimization • 
-						Subscription & ERP Integrations • JavaScript • PHP
-						</p>
-						<p>
-						✔ 7+ Years Shopify Experience <br>
-						✔ 50+ Stores Delivered Globally <br>
-						✔ Shopify Plus & Custom App Expertise <br>
-						✔ Long-Term Client Partnerships
-						</p>
-                        <div class="custom-btn-group mt-4">
-						  <a href="#project" class="btn custom-btn custom-btn-bg">View My Work</a>
-						  <a href="#contact" class="btn custom-btn custom-btn-link">Hire Me</a>
-						  <p class="mt-3">
-						  Trusted by 50+ global eCommerce brands
-						</p>
-						<p class="text-muted">
-						Currently booking Shopify projects for Q2 2026.
-						</p>
-						</div>
-                    </div>
-                </div>
+    /* ─── ABOUT ─── */
+    #about { background: var(--bg2); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+    .about-text strong { color: var(--white); }
+    .about-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 2rem;
+    }
+    .pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 7px 16px;
+      border-radius: 50px;
+      transition: all var(--transition);
+    }
+    .pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .highlight-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: all var(--transition);
+    }
+    .highlight-card:hover {
+      border-color: rgba(0,229,160,0.3);
+      background: var(--card-h);
+      transform: translateX(6px);
+    }
+    .highlight-card h4 {
+      font-family: var(--display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .highlight-card h4 span { color: var(--accent); }
+    .highlight-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 0;
+    }
 
-                <div class="col-lg-5 col-md-12 col-12">
-                    <div class="about-image svg">
-                        <img src="images/undraw/undraw_software_engineer_lvl5.svg" class="img-fluid" alt="svg image">
-                    </div>
-                </div>
+    /* ─── SERVICES ─── */
+    #services { background: var(--bg); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .service-card:hover {
+      border-color: rgba(0,229,160,0.25);
+      background: var(--card-h);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+    .service-card h3 {
+      font-family: var(--display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .service-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
 
-            </div>
-        </div>
-    </section>
-	
+    /* ─── PORTFOLIO ─── */
+    #portfolio { background: var(--bg3); }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      height: 240px;
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+      cursor: pointer;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.45);
+      border-color: rgba(0,229,160,0.25);
+    }
+    .project-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .project-card:hover img { transform: scale(1.06); }
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(0,15,30,0.88) 0%, rgba(0,10,20,0.96) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .project-card:hover .project-overlay { opacity: 1; }
+    .project-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .project-overlay h3 {
+      font-family: var(--display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .project-overlay p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .project-result {
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 7px 16px;
+      border-radius: 50px;
+      width: fit-content;
+      transition: all var(--transition);
+    }
+    .project-link:hover { background: var(--white); }
+    .project-label {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      background: rgba(10,15,30,0.9);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--muted);
+      backdrop-filter: blur(8px);
+    }
 
-    <!-- PROJECTS -->
-    <section class="project py-5" id="project">
-        <div class="container">
-                
-                <div class="row">
-                  <div class="col-lg-11 text-center mx-auto col-12">
+    /* ─── SKILLS ─── */
+    #skills { background: var(--bg2); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 1rem;
+    }
+    .skill-chip {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.1rem 1rem;
+      text-align: center;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--muted);
+      transition: all var(--transition);
+      cursor: default;
+    }
+    .skill-chip .emoji { display: block; font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .skill-chip:hover {
+      background: rgba(0,229,160,0.08);
+      border-color: var(--accent);
+      color: var(--white);
+      transform: translateY(-4px);
+    }
 
-                      <div class="col-lg-11 mx-auto mb-4">
-                        <h2>Selected Shopify & Shopify Plus Projects</h2>
-                      </div>
+    /* ─── WHY ─── */
+    #why { background: var(--bg); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    @media (max-width: 860px) {
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .why-grid { grid-template-columns: 1fr; }
+    }
+    .why-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      transition: all var(--transition);
+    }
+    .why-card:hover {
+      border-color: rgba(0,229,160,0.25);
+      background: var(--card-h);
+      transform: translateY(-4px);
+    }
+    .why-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .why-card h3 {
+      font-family: var(--display);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .why-card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
 
-                      <div class="project-grid">
-						  
-						  <div class="project-card">
-							  <img src="images/project/momzo.png" class="img-fluid"/>
-							  <div class="project-overlay">
-								<h5>Momzo</h5>
-								<p>
-								  Custom Shopify theme • Speed optimization  
-								  Improved mobile UX & checkout flow
-								</p>
-								<p><strong>Result:</strong> +32% conversion rate</p>
-								<a href="https://momzo.in/" target="_blank">
-								  Visit Store
-								</a>
-							  </div>
-						</div>
-						<div class="project-card">
-						  <img src="images/project/DRadiant.png" class="img-fluid"/>
-						  <div class="project-overlay">
-							<h5>Dradiant</h5>
-							<p>Shopify Theme Customization & CRO</p>
-							<a href="https://mydradiant.com/" target="_blank">
-							  Visit Store
-							</a>
-						  </div>
-						</div>
-						  <div class="project-card">
-						  <img src="images/project/bakaloo.png" class="img-fluid" alt="Bakaloo - Fresh Fruits & Vegetables Shopify Store">
+    /* ─── REVIEWS SLIDER ─── */
+    #reviews { background: var(--bg3); }
 
-						  <div class="project-overlay">
-							<h5>Bakaloo</h5>
+    .slider-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      padding: 0 0 3.5rem;
+    }
+    .slider-track {
+      display: flex;
+      transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+      will-change: transform;
+    }
+    .review-card {
+      flex: 0 0 calc(100% / 3);
+      padding: 0 0.65rem;
+      box-sizing: border-box;
+    }
+    .review-inner {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: border-color var(--transition), transform var(--transition);
+      position: relative;
+    }
+    .review-inner::before {
+      content: '"';
+      position: absolute;
+      top: 1rem; right: 1.5rem;
+      font-size: 5rem;
+      font-family: var(--display);
+      color: rgba(0,229,160,0.1);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .review-inner:hover {
+      border-color: rgba(0,229,160,0.25);
+      transform: translateY(-4px);
+    }
+    .stars { color: #FFD700; font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 2px; }
+    .review-text {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      flex: 1;
+    }
+    .reviewer-wrap { display: flex; align-items: center; gap: 0.75rem; }
+    .reviewer-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent2), #006B4F);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--bg);
+      flex-shrink: 0;
+    }
+    .reviewer {
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--white);
+    }
+    .reviewer-company {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
 
-							<p>
-							End-to-end Shopify store design and development for 
-							a fast-moving fresh produce brand, focused on 
-							conversion-driven layout and seamless repeat ordering.
-							</p>
+    /* controls */
+    .slider-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+    }
+    .slider-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      background: var(--card);
+      color: var(--white);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all var(--transition);
+      flex-shrink: 0;
+    }
+    .slider-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(0,229,160,0.08);
+    }
+    .slider-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .slider-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      padding: 0;
+    }
+    .slider-dot.active {
+      background: var(--accent);
+      width: 22px;
+      border-radius: 3px;
+    }
 
-							<a href="https://bakalooindia.com/" target="_blank">
-							  Visit Store
-							</a>
-						  </div>
-						</div>
-                          <div class="project-card">
-						  <img src="images/project/sto.png" class="img-fluid" alt="STO - Shopify Store">
+    /* responsive cards */
+    @media (max-width: 900px) {
+      .review-card { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .review-card { flex: 0 0 100%; }
+    }
 
-						  <div class="project-overlay">
-							<h5>STO</h5>
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--bg2);
+      text-align: center;
+    }
+    .contact-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .contact-inner .section-sub { margin: 0 auto 2.5rem; }
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 2rem;
+      transition: opacity var(--transition);
+    }
+    .contact-email:hover { opacity: 0.75; }
+    .contact-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .availability-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,229,160,0.08);
+      border: 1px solid rgba(0,229,160,0.2);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 50px;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.04em;
+    }
+    .availability-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
 
-							<p>
-							  Custom Shopify theme development and UI refinement 
-							  focused on clean layout structure and improved user flow.
-							</p>
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: var(--display);
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+    .footer-logo span { color: var(--accent); }
+    footer p {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      font-size: 0.82rem;
+      color: var(--muted);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--accent); }
 
-							<p><strong>Scope:</strong> Custom Development • UX Optimization • Performance Improvements</p>
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-							<a href="https://sto.co.il/" target="_blank">
-							  Visit Store
-							</a>
-						  </div>
-						</div>
-                        
-                          <div class="project-card">
-							  <img src="images/project/znatural.png" class="img-fluid" alt="Z Natural Foods - Shopify Store">
+    /* ─── HERO VISUAL (code card) ─── */
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-visual {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      animation: floatUp 1s ease both;
+      animation-delay: 0.3s;
+    }
+    @keyframes floatUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-							  <div class="project-overlay">
-								<h5>Z Natural Foods</h5>
+    /* floating code editor card */
+    .code-card {
+      background: #0D1321;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 32px 64px rgba(0,0,0,0.55), 0 0 0 1px rgba(0,229,160,0.06);
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0px); }
+      50%      { transform: translateY(-10px); }
+    }
+    .code-topbar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .dot-r { width:10px;height:10px;border-radius:50%;background:#FF5F57; }
+    .dot-y { width:10px;height:10px;border-radius:50%;background:#FFBD2E; }
+    .dot-g { width:10px;height:10px;border-radius:50%;background:#28C840; }
+    .code-filename {
+      margin-left: 8px;
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-family: 'Courier New', monospace;
+    }
+    .code-body {
+      padding: 1.25rem 1.5rem;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.78rem;
+      line-height: 1.9;
+      overflow: hidden;
+    }
+    .code-line { display: flex; gap: 1rem; }
+    .ln { color: rgba(255,255,255,0.18); user-select: none; min-width: 16px; text-align: right; }
+    .kw  { color: #C792EA; }   /* keyword  */
+    .fn  { color: #82AAFF; }   /* function */
+    .str { color: #C3E88D; }   /* string   */
+    .acc-c { color: #00E5A0; } /* accent   */
+    .cm  { color: #546E7A; }   /* comment  */
+    .nm  { color: #F78C6C; }   /* number   */
 
-								<p>Custom Shopify development for a large-scale superfoods brand.</p>
-								<p>Optimized product architecture and performance for high SKU volume.</p>
+    /* small metric cards */
+    .hero-metric-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .hero-metric {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      transition: all var(--transition);
+    }
+    .hero-metric:hover {
+      border-color: rgba(0,229,160,0.25);
+      background: rgba(0,229,160,0.05);
+      transform: translateY(-3px);
+    }
+    .metric-val {
+      font-family: var(--display);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .metric-lbl {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 4px;
+      font-weight: 500;
+    }
 
-								<a href="https://www.znaturalfoods.com/" target="_blank">
-								  Visit Store
-								</a>
-							  </div>
-							</div>
+    /* typing animation for last code line */
+    .typed-line {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid var(--accent);
+      width: 0;
+      animation: typeIt 2.8s steps(32,end) 1.2s forwards, blinkCaret 0.8s step-end infinite 1.2s;
+    }
+    @keyframes typeIt   { to { width: 100%; } }
+    @keyframes blinkCaret { 0%,100% { border-color: var(--accent); } 50% { border-color: transparent; } }
 
-                          <div class="project-card">
-						  <img src="images/project/project-3.jpg" class="img-fluid" alt="Jack Murphy Jewellers - Shopify Store">
+    /* ─── MOBILE ─── */
+    @media (max-width: 960px) {
+      .hero-layout { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }   /* hide on small screens — text is enough */
+    }
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-highlights { flex-direction: row; flex-wrap: wrap; }
+      .highlight-card { flex: 1 1 200px; }
+    }
+    @media (max-width: 680px) {
+      nav { padding: 0 4%; }
+      .nav-links { display: none; position: fixed; inset: 0; background: rgba(10,15,30,0.97); flex-direction: column; justify-content: center; align-items: center; gap: 2rem; backdrop-filter: blur(20px); }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.2rem; }
+      .hamburger { display: flex; }
+      #hero { padding: 100px 4% 70px; }
+      section { padding: 72px 4%; }
+      .hero-stats { gap: 1.25rem; }
+      .stat-divider { display: none; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
 
-						  <div class="project-overlay">
-							<h5>Jack Murphy Jewellers</h5>
+<!-- ═══ NAV ═══ -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Bh<span>@</span>vini</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Start a Project</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-							<p>Custom Shopify development for a premium jewellery retailer.</p>
-							<p>Enhanced product presentation and trust-focused conversion flow.</p>
 
-							<a href="https://jackmurphyjewellers.com/" target="_blank">
-							  Visit Store
-							</a>
-						  </div>
-						</div>
-                        
-                          <div class="project-card">
-						  <img src="images/project/korvibe.png" class="img-fluid" alt="Korvibe - Shopify Fashion Store">
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="dot-grid"></div>
+  <div class="hero-glow"></div>
 
-						  <div class="project-overlay">
-							<h5>Korvibe</h5>
+  <div class="hero-layout">
 
-							<p>Custom Shopify storefront development for a modern fashion brand.</p>
-							<p>Optimized collection layout and mobile shopping experience.</p>
-
-							<a href="https://korvibe.com/" target="_blank">
-							  Visit Store
-							</a>
-						  </div>
-						</div>
-                        
-                         <div class="project-card">
-							  <img src="images/project/project-4.png" class="img-fluid" alt="Our Coordinates - Shopify Store">
-
-							  <div class="project-overlay">
-								<h5>Our Coordinates</h5>
-
-								<p>Custom Shopify storefront development for a modern lifestyle brand.</p>
-								<p>Structured collections and optimized mobile-first shopping experience.</p>
-
-								<a href="https://ourcoordinates.com/" target="_blank">
-								  Visit Store
-								</a>
-							  </div>
-							</div>
-                        
-                          <div class="project-card">
-							  <img src="images/project/project-5.png" class="img-fluid" alt="Plakkies - Shopify Footwear Store">
-
-							  <div class="project-overlay">
-								<h5>Plakkies</h5>
-
-								<p>Custom Shopify storefront development for a modern footwear brand.</p>
-								<p>Optimized product display, variant selection and mobile UX.</p>
-
-								<a href="https://wearplakkies.com/" target="_blank">
-								  Visit Store
-								</a>
-							  </div>
-							</div>
-                        
-                          <div class="project-card">
-							  <img src="images/project/project-6.png" class="img-fluid" alt="Vortex Virtual Reality - Shopify Store">
-
-							  <div class="project-overlay">
-								<h5>Vortex Virtual Reality</h5>
-
-								<p>Custom Shopify storefront development for a VR entertainment brand.</p>
-								<p>Optimized user flow for bookings, events and immersive experience showcase.</p>
-
-								<a href="https://vortexvirtualreality.dk/" target="_blank">
-								  Visit Store
-								</a>
-							  </div>
-							</div>
-
-                          <div class="project-card">
-							  <img src="images/project/project-7.png" class="img-fluid" alt="Kriss Orbi NYC - Shopify Store">
-
-							  <div class="project-overlay">
-								<h5>Kriss Orbi NYC</h5>
-
-								<p>Custom Shopify storefront development for a luxury fashion brand.</p>
-								<p>Enhanced visual merchandising and optimized mobile shopping experience.</p>
-
-								<a href="https://krissorbienyc.com/" target="_blank">
-								  Visit Store
-								</a>
-							  </div>
-							</div>
-
-                          <div class="project-card">
-						  <img src="images/project/project-8.png" class="img-fluid" alt="Vortex VR Poland - Shopify Store">
-
-						  <div class="project-overlay">
-							<h5>Vortex VR</h5>
-
-							<p>Custom Shopify storefront development for a VR entertainment brand.</p>
-							<p>Optimized booking flow and performance for experience-based services.</p>
-
-							<a href="https://vortexvr.pl/" target="_blank">
-							  Visit Store
-							</a>
-						  </div>
-						</div>
-                       
-                      </div>
-
-                  </div>
-                </div>
-        </div>
-    </section>
-	<section class="py-5">
-  <div class="container text-center">
-    <h2>Shopify Services I Offer</h2>
-    <div class="row mt-4">
-      <div class="col-md-4">
-        <h5>Custom Shopify Theme Development</h5>
-        <p>Built from scratch using clean Liquid architecture.</p>
+    <!-- LEFT: text -->
+    <div class="hero-inner">
+      <div class="hero-badge">Available for Shopify Projects — 2026</div>
+      <h1 class="hero-title">
+        Senior Shopify&nbsp;Plus<br>
+        Developer<span class="cursor"></span>
+      </h1>
+      <p class="hero-sub">
+        I help high-growth eCommerce brands build, scale, and optimize
+        high-performance Shopify stores — with clean Liquid architecture,
+        bulletproof integrations, and conversion-focused development.
+      </p>
+      <div class="hero-btns">
+        <a href="#portfolio" class="btn-primary">View My Work ↓</a>
+        <a href="#contact" class="btn-outline">Start a Project →</a>
       </div>
-      <div class="col-md-4">
-        <h5>Shopify Plus Solutions</h5>
-        <p>Custom checkout, scripts, automation & B2B solutions.</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">7<span class="acc">+</span></div>
+          <div class="stat-label">Years Shopify Experience</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-num">50<span class="acc">+</span></div>
+          <div class="stat-label">Stores Delivered</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-num">100<span class="acc">%</span></div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-num"><span class="acc">Plus</span></div>
+          <div class="stat-label">Shopify Plus Certified</div>
+        </div>
       </div>
-      <div class="col-md-4">
-        <h5>Store Speed Optimization</h5>
-        <p>Improve Core Web Vitals & boost conversion rates.</p>
+    </div>
+
+    <!-- RIGHT: visual -->
+    <div class="hero-visual">
+
+      <!-- Code editor card -->
+      <div class="code-card">
+        <div class="code-topbar">
+          <span class="dot-r"></span>
+          <span class="dot-y"></span>
+          <span class="dot-g"></span>
+          <span class="code-filename">product.liquid</span>
+        </div>
+        <div class="code-body">
+          <div class="code-line"><span class="ln">1</span><span><span class="cm">{% comment %} Bhavini Patel — Shopify Plus {% endcomment %}</span></span></div>
+          <div class="code-line"><span class="ln">2</span><span></span></div>
+          <div class="code-line"><span class="ln">3</span><span><span class="kw">{% if </span><span class="acc-c">product.available</span><span class="kw"> %}</span></span></div>
+          <div class="code-line"><span class="ln">4</span><span>&nbsp;&nbsp;<span class="fn">{{ product.title </span><span class="kw">|</span><span class="fn"> upcase }}</span></span></div>
+          <div class="code-line"><span class="ln">5</span><span>&nbsp;&nbsp;<span class="fn">{{ product.price </span><span class="kw">|</span><span class="fn"> money_with_currency }}</span></span></div>
+          <div class="code-line"><span class="ln">6</span><span><span class="kw">{% endif %}</span></span></div>
+          <div class="code-line"><span class="ln">7</span><span></span></div>
+          <div class="code-line"><span class="ln">8</span><span><span class="kw">{% for </span><span class="acc-c">variant</span><span class="kw"> in </span><span class="acc-c">product.variants</span><span class="kw"> %}</span></span></div>
+          <div class="code-line"><span class="ln">9</span><span>&nbsp;&nbsp;<span class="fn">{{ variant.title }}</span> <span class="cm">— </span><span class="fn">{{ variant.price </span><span class="kw">|</span><span class="fn"> money }}</span></span></div>
+          <div class="code-line"><span class="ln">10</span><span><span class="kw">{% endfor %}</span></span></div>
+          <div class="code-line"><span class="ln">11</span><span></span></div>
+          <div class="code-line"><span class="ln">12</span><span class="typed-line"><span class="cm">// ✓ +32% conversion — clean &amp; scalable</span></span></div>
+        </div>
+      </div>
+
+      <!-- mini metric cards below the editor -->
+      <div class="hero-metric-row">
+        <div class="hero-metric">
+          <div class="metric-val">⚡ Fast</div>
+          <div class="metric-lbl">Core Web Vitals Optimized</div>
+        </div>
+        <div class="hero-metric">
+          <div class="metric-val">🔌 APIs</div>
+          <div class="metric-lbl">ERP &amp; Third-Party Integrations</div>
+        </div>
+        <div class="hero-metric">
+          <div class="metric-val">🎨 Custom</div>
+          <div class="metric-lbl">Liquid Theme Architecture</div>
+        </div>
+        <div class="hero-metric">
+          <div class="metric-val">🌍 Global</div>
+          <div class="metric-lbl">10+ Countries Delivered</div>
+        </div>
+      </div>
+
+    </div><!-- /hero-visual -->
+  </div><!-- /hero-layout -->
+</section>
+
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <span class="section-tag">About Me</span>
+      <h2 class="section-title">The Shopify Developer Behind the Stores</h2>
+      <p>
+        I'm Bhavini Patel — a Senior Shopify Plus Developer with over
+        <strong>7 years of hands-on experience</strong> helping eCommerce brands
+        solve real business problems through thoughtful, performance-driven
+        development.
+      </p>
+      <p>
+        My work spans custom theme architecture, Shopify Plus solutions,
+        headless builds, ERP and API integrations, and conversion-rate
+        optimization. I've shipped <strong>50+ stores</strong> across
+        fashion, food, jewellery, VR entertainment, and lifestyle — for
+        clients in North America, Europe, the Middle East, and beyond.
+      </p>
+      <p>
+        I don't just build stores. I build scalable, maintainable
+        systems that grow with your business. Most of my client
+        relationships turn into <strong>long-term partnerships</strong> —
+        because I treat every project as if it were my own brand.
+      </p>
+      <div class="about-pills">
+        <span class="pill">Shopify Plus</span>
+        <span class="pill">Liquid Architecture</span>
+        <span class="pill">Custom Themes</span>
+        <span class="pill">Shopify APIs</span>
+        <span class="pill">Headless Commerce</span>
+        <span class="pill">ERP Integrations</span>
+        <span class="pill">Performance Optimization</span>
+        <span class="pill">CRO</span>
+      </div>
+    </div>
+    <div class="about-highlights reveal">
+      <div class="highlight-card">
+        <h4><span>7+</span> Years in Shopify</h4>
+        <p>Deep, specialised expertise in the Shopify ecosystem — from Dawn themes to Shopify Plus custom checkout extensions.</p>
+      </div>
+      <div class="highlight-card">
+        <h4><span>50+</span> Global Brands</h4>
+        <p>Delivered production-grade stores for brands across the US, UK, Israel, Denmark, Poland, Australia, and India.</p>
+      </div>
+      <div class="highlight-card">
+        <h4><span>Full-Stack</span> Shopify</h4>
+        <p>From Liquid and JavaScript to Shopify APIs, GraphQL, and PHP — I handle the full development lifecycle.</p>
+      </div>
+      <div class="highlight-card">
+        <h4><span>Long-Term</span> Partnerships</h4>
+        <p>My clients return. Clean code, clear communication, and a commitment to your growth make the difference.</p>
       </div>
     </div>
   </div>
 </section>
 
-	<!-- Reviews -->
-	<section class="project py-5" id="reviews">
-        <div class="container">
-                
-                <div class="row">
-                  <div class="col-lg-11 text-center mx-auto col-12">
 
-                      <div class="col-lg-11 mx-auto mb-4">
-                        <h2>⭐ Trusted by Global Shopify Clients</h2>
-                      </div>
+<!-- ═══ SERVICES ═══ -->
+<section id="services">
+  <div class="section-header reveal">
+    <span class="section-tag">What I Do</span>
+    <h2 class="section-title">Shopify Services Tailored<br>to Your Growth</h2>
+    <p class="section-sub">From first launch to enterprise-scale — I build the Shopify infrastructure that helps your brand grow without limits.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <span class="service-icon">⚡</span>
+      <h3>Shopify Plus Development</h3>
+      <p>Custom checkout extensions, Shopify Scripts, Flow automations, B2B solutions, and multi-market setups built for enterprise-level brands.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">🎨</span>
+      <h3>Custom Theme Development</h3>
+      <p>Pixel-perfect custom Shopify themes built from scratch with clean, scalable Liquid architecture and mobile-first responsiveness.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">💧</span>
+      <h3>Liquid Development</h3>
+      <p>Advanced Liquid templating, custom sections, dynamic content rendering, and deep theme logic — built to Shopify's best practices.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">🔌</span>
+      <h3>API & Third-Party Integrations</h3>
+      <p>Shopify REST & GraphQL APIs, ERP systems, subscription platforms, CRM tools, and payment gateway integrations — seamlessly connected.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">🚀</span>
+      <h3>Speed & Performance Optimization</h3>
+      <p>Core Web Vitals audits, image optimization, script deferral, and Liquid refactoring to dramatically improve load times and conversion rates.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">🛠️</span>
+      <h3>Ongoing Support & Retainers</h3>
+      <p>Long-term development partnerships with dedicated support, sprint-based feature delivery, and proactive store maintenance.</p>
+    </div>
+  </div>
+</section>
 
-                      <div class="swiper mySwiper">
-						  <div class="swiper-wrapper">
 
-							<div class="swiper-slide">
-							  <div class="project-info">
-								<div>⭐⭐⭐⭐⭐</div>
-								<div>Miss Bhavini Patel is a really great freelancer to work with. She is committed, very organized with well planned task sheet, elastic as needed when constant changes are coming, and also free to give a helping hand. I loved working with her, and I know I will keep working with her in the near as well as foreseen future. I can truly recommend her to anyone that needs a committed freelancer. Also, her communication as well as English level is high.</div>
-								<div style="font-weight:bold">Daniel Wardzynski</div>
-							  </div>
-							</div>
+<!-- ═══ PORTFOLIO ═══ -->
+<section id="portfolio">
+  <div class="section-header reveal">
+    <span class="section-tag">Selected Work</span>
+    <h2 class="section-title">Shopify Stores I've Built<br>& Scaled</h2>
+    <p class="section-sub">A curated selection of Shopify and Shopify Plus projects — hover any card to see the details.</p>
+  </div>
+  <div class="portfolio-grid">
 
-							<div class="swiper-slide">
-							  <div class="project-info">
-								<div>⭐⭐⭐⭐⭐</div>
-								<div>Good job and excellent understanding of customer's needs. I highly recommend her for Shopify Expert Job</div>
-								<div style="font-weight:bold">Tamunt (Mormindy)</div>
-							  </div>
-							</div>
-							
-							<div class="swiper-slide">
-							  <div class="project-info">
-								<div>⭐⭐⭐⭐⭐</div>
-								<div>Great gal to work with. Professional, kind, skillful, polite and always happy and honest when you need her assistance. Highly recomend her to any future project. Hope to work with you more often Bhavini. Good luck!!</div>
-								<div style="font-weight:bold">Daniel Wardzynski</div>
-							  </div>
-							</div>
-							
-							<div class="swiper-slide">
-							  <div class="project-info">
-								<div>⭐⭐⭐⭐⭐</div>
-								<div>I recently had the pleasure of working with Bhavini on my Shopify website, and I am thoroughly impressed with the results. From our initial conversation, Bhavini demonstrated a deep understanding of the platform and its capabilities. Her attention to detail, creativity, and dedication to ensuring the final product met my expectations was exceptional. She consistently provided updates, and made revisions promptly to ensure the site was perfectly tailored to my needs.
+    <div class="project-card reveal">
+      <span class="project-label">Fashion &amp; Apparel</span>
+      <img src="images/project/momzo.png" alt="Momzo Shopify Store" loading="lazy">
+      <div class="project-overlay">
+        <div class="project-tag">Fashion • India</div>
+        <h3>Momzo</h3>
+        <p>Custom Shopify theme, speed optimization, improved mobile UX and checkout flow.</p>
+        <div class="project-result">↑ +32% Conversion Rate</div>
+        <a href="https://momzo.in/" target="_blank" rel="noopener" class="project-link">Visit Store ↗</a>
+      </div>
+    </div>
 
-							Furthermore, Bhavini went above and beyond by offering valuable insights and suggestions that truly elevated the functionality and aesthetics of the website. Her professionalism, combined with her friendly and approachable demeanor, made the entire process seamless and enjoyable.
+    <div class="project-card reveal">
+      <span class="project-label">Beauty</span>
+      <img src="images/project/DRadiant.png" alt="Dradiant Shopify Store" loading="lazy">
+      <div class="project-overlay">
+        <div class="project-tag">Beauty • CRO</div>
+        <h3>Dradiant</h3>
+        <p>Full Shopify theme customization and conversion-rate optimization for a growing beauty brand.</p>
+        <a href="https://mydradiant.com/" target="_blank" rel="noopener" class="project-link">Visit Store ↗</a>
+      </div>
+    </div>
 
-							I am beyond satisfied with the final result and would highly recommend Bhavini to anyone seeking an expert Shopify web developer. Thank you, Bhavini, for your outstanding work and dedication!</div>
-								<div style="font-weight:bold">Khatija Shabana</div>
-							  </div>
-							</div>
-							<div class="swiper-slide">
-							  <div class="project-info">
-								<div>⭐⭐⭐⭐⭐</div>
-								<div>Bhavini is amazing. I had a perfect day working with her. She perfectly understood my purpose and completed the project as it is. In addition, she has excellent communication skills, so there was not a single conflict of opinion. She is also excellent at time management, so she completed the project perfectly without missing the deadline. I think it was a great fortune to meet her here. I am confident that her skills and communication skills are the same as those of 100 employees.</div>
-								<div style="font-weight:bold">Justin Noh</div>
-							  </div>
-							</div>
-							<div class="swiper-slide">
-							  <div class="project-info">
-								<div>⭐⭐⭐⭐⭐</div> 
-								<div style="font-weight:bold">Snir Tuzali, Tuzali Systems LTD</div>
-							  </div>
-							</div>
-						  </div>
+    <div class="project-card reveal">
+      <span class="project-label">Fresh Produce</span>
+      <img src="images/project/bakaloo.png" alt="Bakaloo Shopify Store" loading="lazy">
+      <div class="project-overlay">
+        <div class="project-tag">Grocery • India</div>
+        <h3>Bakaloo</h3>
+        <p>End-to-end store design for a fresh produce brand — conversion-driven layout and seamless repeat ordering.</p>
+        <a href="https://bakalooindia.com/" target="_blank" rel="noopener" class="project-link">Visit Store ↗</a>
+      </div>
+    </div>
 
-						  <!-- Pagination -->
-						  <div class="swiper-pagination"></div>
-						</div>
+    <div class="project-card reveal">
+      <span class="project-label">Retail</span>
+      <img src="images/project/sto.png" alt="STO Shopify Store" loading="lazy">
+      <div class="project-overlay">
+        <div class="project-tag">Retail • Israel</div>
+        <h3>STO</h3>
+        <p>Custom theme development and UI refinement focused on clean layout structure and improved user flow.</p>
+        <a href="https://sto.co.il/" target="_blank" rel="noopener" class="project-link">Visit Store ↗</a>
+      </div>
+    </div>
 
-                  </div>
-                </div>
-        </div>
-    </section>
-	 
-    <!-- FEATURES -->
-     
-	<section class="contact py-5 text-center" style="background:#111; color:#fff;" id="contact">
-		<h2>Ready to Scale Your Shopify Store?</h2>
-		<p>
-			I help brands increase conversions and performance.
-			Let’s discuss your project.
-		</p>
-		<a href="mailto:bhavinirpatel2609@gmail.com" class="btn btn-light mt-3">
-			Book a Free Consultation
-		</a>
-	</section>
-    <!-- CONTACT -->
-     
+    <div class="project-card reveal">
+      <span class="project-label">Health & Wellness</span>
+      <img src="images/project/znatural.png" alt="Z Natural Foods Shopify Store" loading="lazy">
+      <div class="project-overlay">
+        <div class="project-tag">Health • USA</div>
+        <h3>Z Natural Foods</h3>
+        <p>Custom Shopify development for a large-scale superfoods brand. Optimized product architecture for high SKU volume.</p>
+        <a href="https://www.znaturalfoods.com/" target="_blank" rel="noopener" class="project-link">Visit Store ↗</a>
+      </div>
+    </div>
 
-    <!-- FOOTER -->
-     <footer class="footer py-5">
-          <div class="container">
-               <div class="row">
+    <div class="project-card reveal">
+      <span class="project-label">Luxury Jewellery</span>
+      <img src="images/project/project-3.jpg" alt="Jack Murphy Jewellers Shopify Store" loading="lazy">
+      <div class="project-overlay">
+        <div class="project-tag">Jewellery • Premium</div>
+        <h3>Jack Murphy Jewellers</h3>
+        <p>Custom Shopify development for a premium jewellery retailer — enhanced product presentation and trust-focused checkout.</p>
+        <a href="https://jackmurphyjewellers.com/" target="_blank" rel="noopener" class="project-link">Visit Store ↗</a>
+      </div>
+    </div>
 
-                    <div class="col-lg-12 col-12">                                
-                        <p class="copyright-text text-center">
-						  © <span id="year"></span> Bhavini Patel • Senior Shopify Plus Developer. All rights reserved
-						</p>
-                    </div>
-                    
-               </div>
+    <div class="project-card reveal">
+      <span class="project-label">Fashion</span>
+      <img src="images/project/korvibe.png" alt="Korvibe Shopify Fashion Store" loading="lazy">
+      <div class="project-overlay">
+        <div class="project-tag">Fashion • Modern</div>
+        <h3>Korvibe</h3>
+        <p>Custom Shopify storefront for a modern fashion brand — optimized collection layout and mobile shopping experience.</p>
+        <a href="https://korvibe.com/" target="_blank" rel="noopener" class="project-link">Visit Store ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <span class="project-label">Lifestyle</span>
+      <img src="images/project/project-4.png" alt="Our Coordinates Shopify Store" loading="lazy">
+      <div class="project-overlay">
+        <div class="project-tag">Lifestyle • USA</div>
+        <h3>Our Coordinates</h3>
+        <p>Custom storefront development — structured collections and mobile-first shopping experience for a modern lifestyle brand.</p>
+        <a href="https://ourcoordinates.com/" target="_blank" rel="noopener" class="project-link">Visit Store ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <span class="project-label">Footwear</span>
+      <img src="images/project/project-5.png" alt="Plakkies Shopify Footwear Store" loading="lazy">
+      <div class="project-overlay">
+        <div class="project-tag">Footwear • South Africa</div>
+        <h3>Plakkies</h3>
+        <p>Custom storefront with optimized product display, variant selection, and mobile UX for a South African footwear brand.</p>
+        <a href="https://wearplakkies.com/" target="_blank" rel="noopener" class="project-link">Visit Store ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <span class="project-label">VR Entertainment</span>
+      <img src="images/project/project-6.png" alt="Vortex Virtual Reality Shopify Store" loading="lazy">
+      <div class="project-overlay">
+        <div class="project-tag">Entertainment • Denmark</div>
+        <h3>Vortex Virtual Reality</h3>
+        <p>Custom Shopify storefront — optimized booking flow, events, and immersive experience showcase for a VR entertainment brand.</p>
+        <a href="https://vortexvirtualreality.dk/" target="_blank" rel="noopener" class="project-link">Visit Store ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <span class="project-label">Luxury Fashion</span>
+      <img src="images/project/project-7.png" alt="Kriss Orbi NYC Shopify Store" loading="lazy">
+      <div class="project-overlay">
+        <div class="project-tag">Luxury Fashion • NYC</div>
+        <h3>Kriss Orbi NYC</h3>
+        <p>Custom Shopify storefront for a luxury fashion brand — elevated visual merchandising and optimized mobile experience.</p>
+        <a href="https://krissorbienyc.com/" target="_blank" rel="noopener" class="project-link">Visit Store ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <span class="project-label">VR Entertainment</span>
+      <img src="images/project/project-8.png" alt="Vortex VR Poland Shopify Store" loading="lazy">
+      <div class="project-overlay">
+        <div class="project-tag">Entertainment • Poland</div>
+        <h3>Vortex VR Poland</h3>
+        <p>Custom Shopify storefront — optimized booking flow and performance for an experience-based VR services brand.</p>
+        <a href="https://vortexvr.pl/" target="_blank" rel="noopener" class="project-link">Visit Store ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ SKILLS ═══ -->
+<section id="skills">
+  <div class="section-header reveal" style="text-align:center;">
+    <span class="section-tag">Technology Stack</span>
+    <h2 class="section-title">Built with the Right Tools</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-chip reveal"><span class="emoji">🛍️</span>Shopify</div>
+    <div class="skill-chip reveal"><span class="emoji">⚡</span>Shopify Plus</div>
+    <div class="skill-chip reveal"><span class="emoji">💧</span>Liquid</div>
+    <div class="skill-chip reveal"><span class="emoji">🟨</span>JavaScript</div>
+    <div class="skill-chip reveal"><span class="emoji">🐘</span>PHP</div>
+    <div class="skill-chip reveal"><span class="emoji">🌐</span>HTML5</div>
+    <div class="skill-chip reveal"><span class="emoji">🎨</span>CSS3</div>
+    <div class="skill-chip reveal"><span class="emoji">🔗</span>REST APIs</div>
+    <div class="skill-chip reveal"><span class="emoji">◈</span>GraphQL</div>
+    <div class="skill-chip reveal"><span class="emoji">🔄</span>ERP Connect</div>
+    <div class="skill-chip reveal"><span class="emoji">📦</span>Metafields</div>
+    <div class="skill-chip reveal"><span class="emoji">🚀</span>Core Web Vitals</div>
+  </div>
+</section>
+
+
+<!-- ═══ WHY ═══ -->
+<section id="why">
+  <div class="section-header reveal">
+    <span class="section-tag">Why Work With Me</span>
+    <h2 class="section-title">What Sets My Work Apart</h2>
+    <p class="section-sub">Every decision I make is rooted in your business goals — not just technical preference.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-icon">🏗️</div>
+      <h3>Scalable Architecture</h3>
+      <p>I write code that's built to last. Clean, documented Liquid and modular sections mean your store scales without technical debt.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">📈</div>
+      <h3>Performance-Focused</h3>
+      <p>Every build is optimized for speed. Better Core Web Vitals means better SEO, happier customers, and higher conversion rates.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">💬</div>
+      <h3>Reliable Communication</h3>
+      <p>You'll always know where things stand. Detailed task planning, regular updates, and responsive availability — no chasing needed.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🤝</div>
+      <h3>Long-Term Partnership</h3>
+      <p>I'm not a one-time contractor. I invest in understanding your brand and become a true development partner for the long haul.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🔒</div>
+      <h3>Clean, Secure Code</h3>
+      <p>No bloated plugins or shortcuts. Every solution is carefully crafted to be lean, secure, and maintainable by any future developer.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🌍</div>
+      <h3>Global Client Experience</h3>
+      <p>I've worked with brands across 10+ countries — I understand multi-currency, multi-market, and international Shopify setups.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ REVIEWS ═══ -->
+<section id="reviews">
+  <div class="section-header reveal" style="text-align:center;">
+    <span class="section-tag">Client Reviews</span>
+    <h2 class="section-title">Trusted by eCommerce Brands Worldwide</h2>
+  </div>
+
+  <div class="slider-wrapper reveal">
+    <div class="slider-track" id="sliderTrack">
+
+      <div class="review-card">
+        <div class="review-inner">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Bhavini is committed, very organized with a well-planned task sheet, elastic when constant changes arise, and always free to give a helping hand. Her communication and English level are outstanding. I know I will keep working with her in the foreseeable future."</p>
+          <div class="reviewer-wrap">
+            <div class="reviewer-avatar">DW</div>
+            <div>
+              <div class="reviewer">Daniel Wardzynski</div>
+              <div class="reviewer-company">Repeat Client</div>
+            </div>
           </div>
-     </footer>
-     
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/Headroom.js"></script>
-    <script src="js/jQuery.headroom.js"></script>  
-    <script src="js/smoothscroll.js"></script>
-    <script src="js/custom.js"></script>
-	
-	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        </div>
+      </div>
 
-	<script>
-	  var swiper = new Swiper(".mySwiper", {
-		slidesPerView: 1,
-		spaceBetween: 30,
-		loop: true,
-		autoplay: {
-		  delay: 3000,
-		  disableOnInteraction: false,
-		  pauseOnMouseEnter: true,
-		}
-	  });
-	  
-	  
-	  /*for dyn years*/
-	  document.getElementById("year").textContent = new Date().getFullYear();
-	</script>
-  </body>
+      <div class="review-card">
+        <div class="review-inner">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"I am thoroughly impressed with the results. Bhavini demonstrated a deep understanding of Shopify and its capabilities. She went above and beyond by offering valuable insights that truly elevated the functionality and aesthetics of the website. I would highly recommend her to anyone seeking an expert Shopify developer."</p>
+          <div class="reviewer-wrap">
+            <div class="reviewer-avatar">KS</div>
+            <div>
+              <div class="reviewer">Khatija Shabana</div>
+              <div class="reviewer-company">Shopify Store Owner</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-inner">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Bhavini perfectly understood my purpose and completed the project exactly as envisioned. Her communication skills ensured zero conflicts, and her time management was exceptional — she delivered without missing a single deadline. Her skills are equivalent to those of 100 employees."</p>
+          <div class="reviewer-wrap">
+            <div class="reviewer-avatar">JN</div>
+            <div>
+              <div class="reviewer">Justin Noh</div>
+              <div class="reviewer-company">eCommerce Client</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-inner">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Good job and excellent understanding of the customer's needs. I highly recommend Bhavini for any Shopify Expert role."</p>
+          <div class="reviewer-wrap">
+            <div class="reviewer-avatar">TM</div>
+            <div>
+              <div class="reviewer">Tamunt (Mormindy)</div>
+              <div class="reviewer-company">Shopify Client</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-inner">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Professional, kind, skillful, polite and always happy and honest when you need assistance. Highly recommended for any future project. Hope to work with you more often!"</p>
+          <div class="reviewer-wrap">
+            <div class="reviewer-avatar">DW</div>
+            <div>
+              <div class="reviewer">Daniel Wardzynski</div>
+              <div class="reviewer-company">Repeat Client</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-inner">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Excellent collaboration and outstanding Shopify expertise. Delivered exactly what we needed, on time and beyond expectations."</p>
+          <div class="reviewer-wrap">
+            <div class="reviewer-avatar">ST</div>
+            <div>
+              <div class="reviewer">Snir Tuzali</div>
+              <div class="reviewer-company">Tuzali Systems LTD</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /slider-track -->
+
+    <div class="slider-controls">
+      <button class="slider-btn" id="sliderPrev" aria-label="Previous review">&#8592;</button>
+      <div class="slider-dots" id="sliderDots"></div>
+      <button class="slider-btn" id="sliderNext" aria-label="Next review">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="contact-inner reveal">
+    <span class="section-tag">Get In Touch</span>
+    <h2 class="section-title">Have a Shopify Project?<br>Let's Build Something Great.</h2>
+    <p class="section-sub">Whether you're launching a new store, migrating to Shopify Plus, or need an experienced developer to optimize your existing setup — I'm here to help.</p>
+    <div class="availability-badge" style="margin-top:2rem;">Now accepting projects for Q3 2026</div>
+    <br>
+    <a href="mailto:patel23bhavini@gmail.com" class="contact-email">
+      ✉ patel23bhavini@gmail.com
+    </a>
+    <div class="contact-btns">
+      <a href="mailto:patel23bhavini@gmail.com" class="btn-primary">Book a Free Consultation</a>
+      <a href="#portfolio" class="btn-outline">See My Work First</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-logo">Bh<span>@</span>vini</div>
+  <p>© <span id="yr"></span> Bhavini Patel — Senior Shopify Plus Developer</p>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Work</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+
+<script>
+  /* ─── YEAR ─── */
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* ─── HAMBURGER ─── */
+  const ham = document.getElementById('hamburger');
+  const nav = document.getElementById('navLinks');
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    nav.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    ham.classList.remove('open');
+    nav.classList.remove('open');
+  }));
+
+  /* ─── SCROLL REVEAL ─── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = (i * 0.05) + 's';
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ─── NAV SCROLL SHADOW ─── */
+  window.addEventListener('scroll', () => {
+    const nb = document.getElementById('navbar');
+    nb.style.background = window.scrollY > 50
+      ? 'rgba(10,15,30,0.97)'
+      : 'rgba(10,15,30,0.75)';
+  });
+
+  /* ─── REDUCED MOTION ─── */
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(el => {
+      el.style.opacity = 1;
+      el.style.transform = 'none';
+    });
+  }
+
+  /* ─── REVIEWS SLIDER ─── */
+  (function() {
+    const track   = document.getElementById('sliderTrack');
+    const prevBtn = document.getElementById('sliderPrev');
+    const nextBtn = document.getElementById('sliderNext');
+    const dotsEl  = document.getElementById('sliderDots');
+    if (!track) return;
+
+    const cards = track.querySelectorAll('.review-card');
+    const total = cards.length;
+    let current = 0;
+    let autoTimer;
+
+    /* how many cards visible at once */
+    function perView() {
+      return window.innerWidth <= 600 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+    }
+
+    /* total number of "pages" */
+    function pageCount() {
+      return Math.max(1, total - perView() + 1);
+    }
+
+    /* build dots */
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      for (let i = 0; i < pageCount(); i++) {
+        const d = document.createElement('button');
+        d.className = 'slider-dot' + (i === current ? ' active' : '');
+        d.setAttribute('aria-label', 'Go to review ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(d);
+      }
+    }
+
+    function updateDots() {
+      dotsEl.querySelectorAll('.slider-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function goTo(idx) {
+      const pc = pageCount();
+      current = ((idx % pc) + pc) % pc;
+      const pv = perView();
+      const cardW = 100 / pv;          /* % width of each card */
+      track.style.transform = `translateX(-${current * cardW}%)`;
+      updateDots();
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function startAuto() {
+      autoTimer = setInterval(next, 4000);
+    }
+    function stopAuto() {
+      clearInterval(autoTimer);
+    }
+
+    prevBtn.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
+    nextBtn.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
+
+    /* pause on hover */
+    track.closest('.slider-wrapper').addEventListener('mouseenter', stopAuto);
+    track.closest('.slider-wrapper').addEventListener('mouseleave', startAuto);
+
+    /* touch / swipe */
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) { stopAuto(); diff > 0 ? next() : prev(); startAuto(); }
+    }, { passive: true });
+
+    /* rebuild on resize */
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => { buildDots(); goTo(Math.min(current, pageCount() - 1)); }, 150);
+    });
+
+    /* init */
+    buildDots();
+    goTo(0);
+    startAuto();
+  })();
+</script>
+</body>
 </html>
